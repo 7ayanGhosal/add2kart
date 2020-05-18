@@ -1,4 +1,4 @@
-var HOMELINK = 'https://add2kart.herokuapp.com';
+var HOMELINK = 'https://salty-forest-66171.herokuapp.com';
 var request = require('request')
 var express = require('express');
 var app = express();
@@ -98,7 +98,7 @@ app.post("/signup", function(req, res){
 					  from: emailid,
 					  to: email,
 					  subject: 'Account Verification',
-						html:"<div style='background: #deeaee; padding:20px;border-radius:5px'>"+"<h3>Hi  "+email+"</h3><br><p>To complete your sign up, please verify your email :</p>"+"<div class='button' style='margin:10px auto;text-align:center;background:royalblue;padding-top:5px;padding-bottom:4px;width:300px;border-radius:5px;'><a style='color:white;text-decoration:none;font-weight:700;margin:auto' href ='https://add2kart.herokuapp.com/verify/"+email+"'>Click HERE</a></div>"+"<p>Or copy this link and paste in your web browser</p><br><a style='margin:10px auto; text-decoration:none' href ='https://add2kart.herokuapp.com/verify/" + email + "'>https://add2kart.herokuapp.com/verify/" +email+ "</a><p>Cheers,<p><b>The add2kart Team </b></p>"+"</div>"
+						html:"<div style='background: #deeaee; padding:20px;border-radius:5px'>"+"<h3>Hi  "+email+"</h3><br><p>To complete your sign up, please verify your email :</p>"+"<div class='button' style='margin:10px auto;text-align:center;background:royalblue;padding-top:5px;padding-bottom:4px;width:300px;border-radius:5px;'><a style='color:white;text-decoration:none;font-weight:700;margin:auto' href ='https://salty-forest-66171.herokuapp.com/verify/"+email+"'>Click HERE</a></div>"+"<p>Or copy this link and paste in your web browser</p><br><a style='margin:10px auto; text-decoration:none' href ='https://salty-forest-66171.herokuapp.com/verify/" + email + "'>https://salty-forest-66171.herokuapp.com/verify/" +email+ "</a><p>Cheers,<p><b>The add2kart Team </b></p>"+"</div>"
 					};
 
 					transporter.sendMail(mailOptions, function(error, info){
