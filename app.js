@@ -1,4 +1,4 @@
-var HOMELINK = 'http://salty-forest-66171.herokuapp.com/';
+var HOMELINK = 'http://salty-forest-66171.herokuapp.com';
 var request = require('request')
 var express = require('express');
 var app = express();
