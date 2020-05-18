@@ -1,0 +1,44 @@
+<%- include("partials/header")%>
+</head>	
+<body>
+	<style>
+		.image-container{
+			 height: 400px;
+			 width: 100%;
+			 background-size: cover;	
+			background-color:blue;
+		}
+	</style>
+<div>
+	<%for(var i=0;i<category.length;i++){%>
+		<div>
+			<p><%=category[i].row%></p>
+		</div>
+		<div>
+			<p><%=category[i].col%></p>
+		</div>
+		<div class="row w-100" style="width:300px;overflow:hidden;">
+			<%for(var j=0;j<category[i].elements.length;j++){%>
+			<div class="col-3 " >
+					
+				<div>
+					<p style="height:20px;overflow:hidden;"><%=category[i].elements[j].title%></p>
+				</div>
+				<div>
+					<img class="image-container" src="<%=category[i].elements[j].image%>">	
+				</div>
+				<div>
+					<p><%=category[i].elements[j].rating%></p>	
+				</div>
+				<div>
+					<p><%=category[i].elements[j].noOfRating%></p>	
+				</div>
+				
+			</div>
+				<%}%>
+		</div>
+	<%}%>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<% var row = 1 %>
+<% var col = 1 %>
+<% var HOMELINK = 'https://add2kart.herokuapp.com'; %>
+
+
+<% row = row +1  %>
+<% col = 1  %>
+
+<a href = "<%- HOMELINK %>/<%- row %>/<%- col %>" <% col = col+1 %> >         </a>
+
+<% url = HOMELINK +"/"+ toString(row) +"/"+toString(col) %>

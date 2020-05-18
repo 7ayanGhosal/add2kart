@@ -1,0 +1,130 @@
+<%- include("partials/header")%>
+
+	<style>
+		.col-test{
+			background:gold;
+			margin: 10px 2px;
+			padding:0;
+			border-radius: 15px;
+			text-align: center;
+			/* border-left: 4px solid white;
+			border-left: 4px solid white; */
+			border:3px solid orangered;
+			overflow:hidden;
+			/* background-color: #00c21d; */
+background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+		
+		}
+		.img-thumbnail{
+			max-width:100px;
+			max-height:100px;
+			width:20vw;
+			height:20vw;
+			background:white;
+			border:0;
+		}
+		.items:hover{
+			box-shadow: 10px 10px;
+		}
+		.rating{
+			background:#EA4335;
+			text-align:center;
+			border-radius:8px 0 0 8px;
+			color:white;
+			padding-left:8px;
+			padding-right:8px;
+			font-weight:bold;
+			border-right:2px solid black;
+			margin-right:0;
+		}
+		.number-of-ratings
+		{
+			background:white;
+			text-align:center;
+			border-radius:0 8px 8px 0;
+			color:#EA4335;
+			padding-left:8px;
+			padding-right:8px;
+			font-weight:bold;
+			border-left:2px solid black;
+			margin-left:-4px;
+		}
+		.images{
+			background:white;
+		}
+		.price{
+			font-weight:bold;
+			font-size:20px;
+			padding:50px 50px 50px 50px;
+			margin:0;
+			color:white;
+			
+		}
+		.add-to-cart{
+			color:white;
+			font-weight:bold;
+			font-size:20px;
+			padding:50px 50px 50px 50px;
+			margin:0;
+		}
+		.title{
+			font-weight:bold;
+			margin-top:10px;
+			text-shadow: 0px 0px 3px black;
+		}
+		.division-1{
+			padding-top:4px;
+			padding-bottom:4px;
+			background:orangered;
+			/* background-color: #c2302b; */
+background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+			border-radius:8px 8px 0 0;
+			
+		}
+		.division-1 p{
+			margin-bottom:0;
+			
+		}
+		
+		.division-2{
+			/* border-left:solid orangered;
+			border-right:solid orangered; */
+			
+			
+		}
+		.division-3{
+			background:gold;
+			padding-top:20x;
+			color:white;
+			background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+			
+		}
+		
+	</style>
+	
+
+</head>	
+<body>
+	<p>ROW: <%- cat.row %> , COL:<%- cat.col %></p>
+	<div  class="conatiner-fluid w-100 overflow-hidden">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% for(var i=0; i<cat.elements.length; i++) { %>
+			<div  class="col col-9 col-sm-5 col-lg-3 col-xl-2 col-test">
+				<div class="w-100 division-1">
+					<p><span class="price"><%- cat.elements[i].price%></span> <span class="add-to-cart"><button type="button" class="btn btn-outline-light" ><i class="fas fa-cart-plus"></i></button></span></p>
+				</div>
+				<div class="w-100 images division-2">
+					<img class="img-thumbnail" src="<%- cat.elements[i].image%>">
+				</div>
+				<div class="w-100 bg-black division-3">
+					<p class="title"><%- cat.elements[i].title%></p>
+					<p><span class="rating"><i class="fas fa-star"></i> <%- cat.elements[i].rating%></span> <span class="number-of-ratings"><%- cat.elements[i].noOfRating%></span></p>
+				</div>
+			</div>
+			<% } %>
+		</div>
+	</div>
+</body>
+</html>

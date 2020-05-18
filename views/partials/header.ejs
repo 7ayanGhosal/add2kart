@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Add2KaRt</title>
+		<!---css-->
+		
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		
+		<!--boostrap-->
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-		q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+		<!---font awesome-->
+		<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+		<!-- google font-->
+		<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Orbitron:wght@400;800&family=Spinnaker&display=swap" rel="stylesheet">
+		<style>
+			body{
+				padding-top:100px;
+				
+
+
+			
+			}
+			body {
+			  background-color: #faf2eb;
+				/* background-color: #c2302b; */
+background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+				background-color: #fadbad;
+/* background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+			/* background-color: #c20600;
+background-image: url("https://www.transparenttextures.com/patterns/gravel.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+				background-color: #fadbad;
+background-image: url("https://www.transparenttextures.com/patterns/dark-brick-wall.png");
+			}
+			.navbar-brand{
+				position:relative;
+				left:20px;
+			}
+			.brand-img{
+				width:3.5em;
+				height:3.5em;
+				margin:-10px;
+				margin-bottom:10px;
+			}
+			.brand-text2{
+				margin-left:-6px;
+				color:red;
+				font-size:2em;
+				text-shadow:0px 0px 4px white;
+				font-weight:600!important;
+				font-family: 'Orbitron', sans-serif;
+				margin-right:10px;
+			}
+			.brand-text1{
+				color:lightskyblue;
+				font-size:1.4em;
+				margin-right:-3px;
+				text-decoration: underline;
+				text-decoration: overline #acf570;
+				font-weight:100!important;
+				font-family: 'Orbitron', sans-serif;
+			}
+			.modal-backdrop {
+			  position:unset !important;
+			}
+			.navbar-user-profile{
+  				/* vertical-align: middle; */
+				color:lightgrey;
+			}
+			.user{
+				position: fixed;
+				right:0px;
+				background-color: rgba(0,0,0,0.5);
+				  z-index: 2;
+				  cursor: pointer;
+			}
+			
+			nav{
+				background:black;
+			}
+/* 			SIDE NAVBAR FROM W3 */
+			.sidenav {
+			  height: 100%; /* 100% Full-height */
+			  width: 0; /* 0 width - change this with JavaScript */
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Stay on top */
+			  top: 0; /* Stay at the top */
+			  left: 0;
+			  background-color: #111; /* Black*/
+			  overflow-x: hidden; /* Disable horizontal scroll */
+			  padding-top: 60px; /* Place content 60px from the top */
+			  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+			}
+
+			/* The navigation menu links */
+			.sidenav a {
+			  padding: 8px 8px 8px 32px;
+			  text-decoration: none;
+			  font-size: 25px;
+			  color: #818181;
+			  display: block;
+			  transition: 0.3s;
+			}
+
+			/* When you mouse over the navigation links, change their color */
+			.sidenav a:hover {
+			  color: #f1f1f1;
+			}
+
+			/* Position and style the close button (top right corner) */
+			.sidenav .closebtn {
+			  position: absolute;
+			  top: 0;
+			  right: 25px;
+			  font-size: 36px;
+			  margin-left: 50px;
+			}
+
+			/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+			#main {
+			  transition: margin-left .5s;
+			  padding: 20px;
+			}
+
+			/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+			@media screen and (max-height: 450px) {
+			  .sidenav {padding-top: 15px;}
+			  .sidenav a {font-size: 18px;}
+			}
+
+			
+			.sidenav {
+				right: 0;
+			}
+			.closebtn{
+				margin-top:100px;
+			}
+			
+			
+			
+		</style>
+		<script>
+						/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+			function openNav() {
+				console.log(screen.width);
+				if(screen.width <650)
+				{
+					document.getElementById("mySidenav").style.width = "75vw";
+					document.getElementById("main").style.marginLeft = "75vw";
+				}  
+				else{
+					document.getElementById("mySidenav").style.width = "40vw";
+					document.getElementById("main").style.marginLeft = "40vw";
+				}
+			}
+
+			/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+			function closeNav() {
+			  document.getElementById("mySidenav").style.width = "0";
+			  document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>

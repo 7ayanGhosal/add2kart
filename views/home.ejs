@@ -1,0 +1,332 @@
+<% var row = 1 %>
+<% var col = 1 %>
+<% var HOMELINK = 'https://add2kart.herokuapp.com'; %>
+<% var url %>
+
+
+<%- include("partials/header")%>
+	<style>
+		#testimonials-carousel{
+			width: 100%;
+			overflow: hidden;
+		}
+		
+		@media only screen and (max-width: 600px) {
+			.car-img{
+				height: 50vh;
+				width: 150vw;
+				position: relative;
+				right: 20%;
+			}
+		}
+		@media only screen and (min-width: 601px) {
+			.car-img{
+				width: 100%;
+				position: relative;
+				/* top:20px; */
+			}
+		}
+		@media only screen and (max-width: 1199px) {
+			.mod-btn{
+				width:400px;
+			}
+		}
+		@media only screen and (min-width: 1200px) {
+			.mod-btn{
+				width:100px;
+			}
+		}
+		.col-test{
+			background: lightgrey;
+			margin: 5px 0;
+			padding-top: 15px;
+			border-radius: 10px;
+			text-align: center;
+			border: 4px solid white;
+		}
+		.img-thumbnail{
+			max-width:200px;
+			max-height:200px;
+			width:40vw;
+			height:40vw;
+		}
+	</style>
+</head>	
+<body>	
+		<% if(login == true) {%>
+				<%- include("partials/navbar1")%>
+		<%} else {%>
+				<%- include("partials/navbar2")%>	
+		<%}%>
+<!--slider-->
+<div id="testimonials-carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    	<img class="d-block car-img" class="testimonials-image"  src="https://images-eu.ssl-images-				amazon.com/images/G/31/img20/PCA/Hero/1500x600_grooming_hero._CB432139247_.jpg" alt="item-1">
+    </div>
+
+    <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image"   src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/OHL_Discovery/GW/Covid/HnK_essentials_low_res._CB432429880_.jpg
+" alt="item-2">
+    </div>
+	  
+	  <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image"   src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Pantry/May2020/GW_Banner/Web_SBI_GW_1500x600._CB432550729_.jpg" alt="item-2">
+    </div>
+	  
+	  <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image"   src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/OHL_Discovery/GW/Covid/HnK_essentials_low_res._CB432429880_.jpg" alt="item-3">
+    </div>
+	  
+	  <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image" src="https://images-eu.ssl-images-amazon.com/images/G/31/img19/AmazonPay/Boson/Sid/UPI/Desktop/Ingresses/DesktopHero_1500x600_1AB._CB434055746_.jpg" alt="item-4">
+    </div>
+	  
+	  <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image" src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/AmazonBusiness/XCM_Manual_1218154_1500x600_revised_403a9e85-5e54-42a8-95af-cd79477c66f6_withlogo._CB432278517_.jpg
+" alt="item-5">
+    </div>
+	  
+	  <div class="carousel-item">
+    	<img class="d-block car-img" class="testimonials-image" src="https://images-eu.ssl-images-amazon.com/images/G/31/img17/Pantry/May2020/GW_Banner/Web_SBI_GW_1500x600._CB432550729_.jpg" alt="item-6">
+    </div>
+	  
+	  
+	  
+  <a class="carousel-control-prev" href="#testimonials-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#testimonials-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+	
+<!--categories-->
+	
+<!--row 1-->
+	<div class="conatiner-fluid">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			
+			<div class="col col-11 col-sm-5 col-xl-3 col-test">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images ">
+				<img class="img-thumbnail" src="https://www.nestlehealthscience.us/asset-library/PublishingImages/products/us-products/CBE-HighProtein.jpg">
+				<p>Beverages and Breakfast Essentials</p>
+				</div>
+					</a>
+			</div>
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3 col-test" >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail" src="https://4.imimg.com/data4/AP/GM/MY-2061378/ready-to-eat-snacks-250x250.jpg">
+				<p>Snacks and Ready to Eat</p>
+				</div>
+				</a> 
+			</div>
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3 col-test  " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images ">
+				<img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/81w6pMmsHmL._AC_SX522_.jpg">
+				<p>Cooking and Baking Essentials</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3 col-test  " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images ">
+				<img class="img-thumbnail" src="https://vitential.co.uk/wp-content/uploads/2020/03/Vitential-products2a.png">
+				<p>Health and Supplements</p>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+<!--row 2-->
+	<% row = row +1  %>
+    <% col = 1  %>
+	<div class="conatiner-fluid">
+		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+					<img class="img-thumbnail"   src="https://miro.medium.com/max/1200/1*rmasAHLYEosrR96D-QUwGQ.jpeg">
+					<p>Masks</p>
+				</div>
+				</a>
+				</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				
+				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/1089/4204/products/evolve-beauty-products-organic-haircare-essentials-giftset-4836865703980_600x.jpg?v=1581520763">
+				<p>Hair Care Essentials</p>
+				</div>
+				</a>
+   			 </div>			
+		
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				<img class="img-thumbnail"  src="https://i.ytimg.com/vi/lnrMl27kESY/maxresdefault.jpg">
+				<p>Skin Care Essentials</p>
+				</div>
+				</a>
+			</div>
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3 col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				<img class="img-thumbnail" src="https://cdn.shopify.com/s/files/1/0122/2033/4180/files/Personal_Care_banner.jpg?12209">
+				<p>Personal Care Essentials</p>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+<!--row 3-->
+	<% row = row +1  %>
+    <% col = 1  %>
+	<div class="conatiner-fluid">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				<img class="img-thumbnail"  src="https://thebabyspecialist.com.sg/media/catalog/category/Feeding.jpg">
+				<p>Feeding and Nursing</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				
+				<img class="img-thumbnail"  src="https://ae01.alicdn.com/kf/HTB1To4vLMHqK1RjSZFgq6y7JXXac/6pcs-Cute-Car-Baby-Bedding-bumpers-Thicken-Crib-Bumpers-Around-Cushion-Cot-Protector-Sheet-Pillowcase-7Color.jpg">
+				<p>Baby Bedding</p>
+				</div>
+				</a>
+   			 </div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://designformankind.com/wp-content/uploads/2014/10/health-and-safety-essentials-for-baby.jpg">
+				<p>Health and Safety</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://www.bamboolik.eu/out/pictures/z1/97059_2_z1.jpg">
+				<p>Diapers</p>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+<!--row 4-->
+	<% row = row +1  %>
+    <% col = 1  %>
+	<div class="conatiner-fluid">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				<img class="img-thumbnail"  src="https://i.pinimg.com/originals/77/c2/dd/77c2ddb8a3c2811781aba63f16cbaa2c.jpg">
+				<p>Kitchen Essentials</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				
+				<img class="img-thumbnail"  src="https://www.kenresearch.com/blog/wp-content/uploads/2018/04/Asia-Pacific-Home-Furnishings-Market-Outlook.jpg">
+				<p>Home Furnishings</p>
+				</div>
+				</a>
+   			 </div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/2090/3151/collections/IMG_8478_grande_8106a98e-7efe-4434-b631-f8e6e463fc64.jpg?v=1565498158">
+				<p>Pooja Essentials<p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://cdn2.hubspot.net/hubfs/2731727/Imported_Blog_Media/cleaning-essentials.jpg">
+				<p>Home Cleaning Essentials</p>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+<!--row 5-->	
+	<% row = row +1  %>
+    <% col = 1  %>
+	<div class="conatiner-fluid">
+		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4 border p-2 my-2 justify-content-around">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div  class="images  ">
+				<img class="img-thumbnail" src="https://previews.123rf.com/images/terdpong/terdpong1808/terdpong180800230/112227436-stationary-vector-collection-design-stationery-vector-collection-design.jpg">
+				<p>Stationery</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				
+				<img class="img-thumbnail"  src="https://scholarlykitchen.sspnet.org/wp-content/uploads/2017/02/iStock-501794256.jpg">
+				<p>Academic Books</p>
+				</div>
+				</a>
+   			 </div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202004/e-learning_digital_education-770x433.jpeg?LaMtJoQ83Wr4.nEmUI69c8k3PdW5ht_M">
+				<p>Digital and E-Learning</p>
+				</div>
+				</a>
+			</div>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
+				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+				<div class="images  ">
+				<img class="img-thumbnail"  src="https://www.themoderndaygirlfriend.com/wp-content/uploads/unnamed-3-3.jpg">
+				<p>Pet Essentials</p>
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
