@@ -1,4 +1,4 @@
-var HOMELINK = 'https://salty-forest-66171.herokuapp.com';
+var HOMELINK = 'http://salty-forest-66171.herokuapp.com/';
 var request = require('request')
 var express = require('express');
 var app = express();
@@ -13,6 +13,17 @@ var transporter = nodemailer.createTransport({
     pass: emailpass
   }
 });
+
+var mailtext1 =
+//  "<div style='height = 2em; padding-top:0.2em text-align:center'><a style='margin:auto' href='"+HOMELINK+"/'><span style = 'color:lightskyblue;font-size:0.8em;text-decoration: underline;text-decoration: overline #acf570;font-weight:400;'>add</span><img style='width:1.8em;height:1.8em;' src ='https://pngimage.net/wp-content/uploads/2018/06/png-2-5.png'><span style='color:red;font-size:1.1em;font-weight:800;'>kart</span></a></div><hr>"
+// +
+"<div style='background: #deeaee; padding:20px;border-radius:5px; text-align:center; width:65vw; margin:auto'><a style='margin:auto;text-decoration:none' href='"+HOMELINK+"/'><span style = 'color:lightskyblue;font-size:1.2em;text-decoration:overline #acf570;font-weight:400;'>add</span><img style='width:1.6em;height:2.5em;' src ='https://pngimage.net/wp-content/uploads/2018/06/png-2-5.png'><span style='color:red;font-size:1.6em;font-weight:800;'>kart</span></a>"+"<h3>Hi  ";
+ var mailtext2 = "</h3><p>To complete your sign up, please verify your email :</p>"+"<div class='button' style='margin:10px auto;text-align:center;background:royalblue;padding-top:5px;padding-bottom:4px;width:45vw;max-width:500px;border-radius:5px;'><a style='color:white;text-decoration:none;font-weight:700;margin:auto' href ='"+HOMELINK+"/verify/";
+ var mailtext3 = "'>Click HERE</a></div>"+"<p>Or copy this link and paste in your web browser</p><a style='margin:10px auto; text-decoration:none' href ='"+HOMELINK+"/verify/"
+ var mailtext4 ="'>"+HOMELINK+"/verify/"
+ var mailtext5 = "</a><p>Cheers,<p><b>The add2kart Team</p></div>";
+
+
 
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -34,8 +45,10 @@ var userSchema = new mongoose.Schema({
     email: String,
     password: String,
     birthday: Date,
-    gender: String,
-	verified: Boolean
+	verified: Boolean,
+	zip:Number,
+	city:String,
+	address: String
 });
 
 //------------------------------------------------MODEL
@@ -77,21 +90,23 @@ app.post("/", function(req, res){
 });
 
 app.post("/signup", function(req, res){
-	var name = null;
-    var surname = null;
+	var name = "Not provided";
+    var surname = "";
+	var address = "Not provided";
     var email = req.body.userEmail;
     var password = req.body.userPass;
-    var birthday = null;
-    var gender = null;
+    var birthday = Date(01, 01, 2000);
+	var zip = 777777;
+	var city = "Not provided";
 	var verified = false;
-    var newUser = {name: name, surname:surname, email: email, password: password, birthday: birthday, gender: gender, verified: verified};
+    var newUser = {name: name, surname:surname, email: email, address:address , password: password, birthday: birthday, verified: verified, zip:zip, city:city};
     //check if user already exists
     User.find({email: email}, function(err, foundUser){
         var len = foundUser.length;
         if(err){
             console.log("Error in user find signup");
         }
-        else if(len == 0){
+        else if(len == 0||true){
             User.create(newUser, function(err, user){
 				if(err){
                     console.log("ERROR IN SIGNUP");
@@ -102,7 +117,7 @@ app.post("/signup", function(req, res){
 					  from: emailid,
 					  to: email,
 					  subject: 'Account Verification',
-						html:"<div style='background: #deeaee; padding:20px;border-radius:5px'>"+"<h3>Hi  "+email+"</h3><br><p>To complete your sign up, please verify your email :</p>"+"<div class='button' style='margin:10px auto;text-align:center;background:royalblue;padding-top:5px;padding-bottom:4px;width:300px;border-radius:5px;'><a style='color:white;text-decoration:none;font-weight:700;margin:auto' href ='https://salty-forest-66171.herokuapp.com/verify/"+email+"'>Click HERE</a></div>"+"<p>Or copy this link and paste in your web browser</p><br><a style='margin:10px auto; text-decoration:none' href ='https://salty-forest-66171.herokuapp.com/verify/" + email + "'>https://salty-forest-66171.herokuapp.com/verify/" +email+ "</a><p>Cheers,<p><b>The add2kart Team </b></p>"+"</div>"
+						html:mailtext1+email+mailtext2+email+mailtext3+email+mailtext4+email+mailtext5
 					};
 
 					transporter.sendMail(mailOptions, function(error, info){
@@ -172,7 +187,32 @@ app.get("/category/:row/:col", function(req, Res){
 });
 
 
-
+app.post("/update-info/:email", function(req, Res){
+	var email = req.params.email;
+	var password = req.body.password;
+	var address = req.body.address;
+	var name = req.body.name;
+	var surname = req.body.surname;
+	var birthday = req.body.birthday;
+	var myquery = {email: email};
+	var zip = req.body.zip;
+	var city = req.body.city;
+	var newvalues = {password:password, address:address, birthday:birthday, name:name, surname:surname, zip:zip, city:city};
+	User.updateOne(myquery, newvalues, function(err, res){
+		if(err){
+			Res.redirect("/");
+		}
+		else{
+			request.post({
+			  headers: {'content-type' : 'application/x-www-form-urlencoded'},
+			  url:     HOMELINK+'/',
+			  form:    { userEmail: email, userPass:password }
+			}, function(error, response, body){
+			  Res.send(body);
+			});					
+		}
+	})
+});
 
 
 

@@ -90,7 +90,7 @@
 		<ul class="nav justify-content-end">
 			
 				<!-- Button trigger modal -->	
-				<button style="margin:auto;" type="button" style="width:100px;" class="btn btn-outline-dark my-2 my-sm-0 mod-btn bg-success text-dark" data-toggle="modal" data-target="#exampleModal-login">
+				<button style="margin:auto;" type="button" style="width:100px;" class="btn btn-outline-dark my-2 my-sm-0 mod-btn text-dark" data-toggle="modal" data-target="#exampleModal-login">
 				  LOGIN
 				</button>
 				<form class="nav-link" class="form-inline my-2 my-lg-0" action="/" method="POST">
@@ -100,22 +100,21 @@
 					  <div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content bg-light">
 						  <div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							  <span aria-hidden="true">&times;</span>
-							</button>
+							<h5 class="modal-title m-auto" id="exampleModalLabel" >LOGIN</h5>
 						  </div>
 						  <div class="modal-body">
 									<div>
+										<label>Enter a valid email-id.</label>
 										<input required class="form-control mr-sm-2" type="email" name="userEmail" placeholder="email">
 									</div>
 									<div>
+										<label>Enter a password.</label>
 										<input required class="form-control mr-sm-2" type="password" name="userPass" placeholder="password">
 									</div>
 						  </div>
 						  <div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">LOGIN</button>
+						<button type="button" class="btn btn-danger m-auto" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-info m-auto" style="background:#047BD5;">LOGIN</button>
 							</div>
 						</div>
 					  </div>
@@ -124,7 +123,7 @@
 				
 					
 				<!-- Button trigger modal -->
-				<button style="margin:auto;" type="button" class="btn btn-outline-dark my-2 my-sm-0 mod-btn bg-success text-dark" data-toggle="modal" data-target="#exampleModal-signup">SIGNUP
+				<button style="margin:auto;" type="button" class="btn btn-outline-dark my-2 my-sm-0 mod-btn text-dark" data-toggle="modal" data-target="#exampleModal-signup">SIGNUP
 				</button>
 				<form class="nav-link" class="form-inline my-2 my-lg-0" action="/signup" method="POST">
 					<!-- Modal -->
@@ -132,24 +131,23 @@
 					  <div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content bg-light">
 						  <div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">SIGNUP</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							  <span aria-hidden="true">&times;</span>
-							</button>
+							<h5 class="modal-title m-auto" id="exampleModalLabel" >SIGNUP</h5>
 						  </div>
 						  <div class="modal-body">
-									<div>
-										
-										<input required class="form-control mr-sm-2" type="email" name="userEmail" placeholder="email">
-									</div>
-									<div>
-										
-										<input required class="form-control mr-sm-2" type="password" name="userPass" placeholder="password">
-									</div>
+								<div>
+									<label>Enter a valid email-id.</label>
+									<input required class="form-control mr-sm-2" type="email" name="userEmail" placeholder="email">
+									<small id="emailHelp" class="form-text text-light mb-0">A VERIFICATION LINK WILL BE SENT TO THIS EMAIL-ID</small>
+									<small id="emailHelp" class="form-text text-light mt-0">(We'll never share your email with anyone else..)</small>
+								</div>
+								<div>
+									<label class="mt-4">Enter a password.</label>
+									<input required class="form-control mr-sm-2" type="password" name="userPass" placeholder="password">
+								</div>
 						  </div>
 						  <div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">SIGNUP</button>
+							<button type="button" class="btn btn-danger m-auto" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-info m-auto" style="background:#047BD5;">SIGNUP</button>
 						  </div>
 						</div>
 					  </div>

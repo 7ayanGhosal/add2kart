@@ -1,11 +1,15 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'https://salty-forest-66171.herokuapp.com'; %>
+<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com/'; %>
 <% var url %>
 
 
 <%- include("partials/header")%>
 	<style>
+		a:hover{
+			text-decoration:none;
+			color:white;
+		}
 		#testimonials-carousel{
 			width: 100%;
 			overflow: hidden;
@@ -38,18 +42,50 @@
 		}
 		.col-test{
 			background: lightgrey;
-			margin: 5px 0;
+			background-color:rgba(0,0,0,0.2);
+			margin: 8px 0;
 			padding-top: 15px;
 			border-radius: 10px;
 			text-align: center;
 			border: 4px solid white;
+			padding-left: 0;
+			padding-right:0;
+			overflow:hidden;
+		}
+		.col-test:hover{
+			background-color:rgba(44, 130, 201, 0.6);
+			box-shadow: 0 0 13px black;
 		}
 		.img-thumbnail{
-			max-width:200px;
-			max-height:200px;
+			max-width:180px;
+			max-height:180px;
 			width:40vw;
-			height:40vw;
+			height:40vw;	
 		}
+		.img-thumbnail:hover{
+			max-width:188px;
+			max-height:188px;
+			width:44vw;
+			height:44vw;
+		}
+		
+		.categories{ 
+			color:white;
+			text-align:center;
+			font-weight:bold;
+			text-shadow: 2px 2px 8px black;
+		}	
+		.category-link{
+			color:white;
+			font-weight:bold;
+			text-shadow: 0 0 4px black;
+			
+		}
+		p{
+			margin-top:5px;	
+		}
+		
+		
 	</style>
 </head>	
 <body>	
@@ -93,11 +129,11 @@
 	  
 	  
 	  
-  <a class="carousel-control-prev" href="#testimonials-carousel" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#testimonials-carousel" role="button" data-slide="prev" id="left">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#testimonials-carousel" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#testimonials-carousel" role="button" data-slide="next" id="right">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -107,11 +143,16 @@
 	
 <!--row 1-->
 	<div class="conatiner-fluid">
-		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+		<div>
+  			<h2  class="categories" style="padding-top:20px;">
+				Food, Beverages and Supplements
+			</h2>
+		</div>
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
 			
-			<div class="col col-11 col-sm-5 col-xl-3 col-test">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images ">
 				<img class="img-thumbnail" src="https://www.nestlehealthscience.us/asset-library/PublishingImages/products/us-products/CBE-HighProtein.jpg">
 				<p>Beverages and Breakfast Essentials</p>
@@ -120,8 +161,8 @@
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3 col-test" >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test" >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail" src="https://4.imimg.com/data4/AP/GM/MY-2061378/ready-to-eat-snacks-250x250.jpg">
 				<p>Snacks and Ready to Eat</p>
@@ -130,8 +171,8 @@
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3 col-test  " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test  " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images ">
 				<img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/81w6pMmsHmL._AC_SX522_.jpg">
 				<p>Cooking and Baking Essentials</p>
@@ -139,8 +180,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3 col-test  " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test  " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images ">
 				<img class="img-thumbnail" src="https://vitential.co.uk/wp-content/uploads/2020/03/Vitential-products2a.png">
 				<p>Health and Supplements</p>
@@ -153,10 +194,15 @@
 	<% row = row +1  %>
     <% col = 1  %>
 	<div class="conatiner-fluid">
-		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4 border p-2 my-2 justify-content-around">
+		<div>
+  			<h2 class="categories">
+				Grooming and Hygiene
+			</h2>
+		</div>
+		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4  p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 					<img class="img-thumbnail"   src="https://miro.medium.com/max/1200/1*rmasAHLYEosrR96D-QUwGQ.jpeg">
 					<p>Masks</p>
@@ -164,8 +210,8 @@
 				</a>
 				</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				
 				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/1089/4204/products/evolve-beauty-products-organic-haircare-essentials-giftset-4836865703980_600x.jpg?v=1581520763">
@@ -175,8 +221,8 @@
    			 </div>			
 		
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				<img class="img-thumbnail"  src="https://i.ytimg.com/vi/lnrMl27kESY/maxresdefault.jpg">
 				<p>Skin Care Essentials</p>
@@ -185,8 +231,8 @@
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3 col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				<img class="img-thumbnail" src="https://cdn.shopify.com/s/files/1/0122/2033/4180/files/Personal_Care_banner.jpg?12209">
 				<p>Personal Care Essentials</p>
@@ -199,10 +245,15 @@
 	<% row = row +1  %>
     <% col = 1  %>
 	<div class="conatiner-fluid">
-		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+		<div>
+  			<h2 class="categories">
+				Baby Care Essentials
+			</h2>
+		</div>
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4  p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				<img class="img-thumbnail"  src="https://thebabyspecialist.com.sg/media/catalog/category/Feeding.jpg">
 				<p>Feeding and Nursing</p>
@@ -210,8 +261,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				
 				<img class="img-thumbnail"  src="https://ae01.alicdn.com/kf/HTB1To4vLMHqK1RjSZFgq6y7JXXac/6pcs-Cute-Car-Baby-Bedding-bumpers-Thicken-Crib-Bumpers-Around-Cushion-Cot-Protector-Sheet-Pillowcase-7Color.jpg">
@@ -220,8 +271,8 @@
 				</a>
    			 </div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://designformankind.com/wp-content/uploads/2014/10/health-and-safety-essentials-for-baby.jpg">
 				<p>Health and Safety</p>
@@ -229,8 +280,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://www.bamboolik.eu/out/pictures/z1/97059_2_z1.jpg">
 				<p>Diapers</p>
@@ -243,10 +294,15 @@
 	<% row = row +1  %>
     <% col = 1  %>
 	<div class="conatiner-fluid">
-		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
+		<div>
+  			<h2 class="categories">
+				For Essential Home Needs
+			</h2>
+		</div>
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4  p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				<img class="img-thumbnail"  src="https://i.pinimg.com/originals/77/c2/dd/77c2ddb8a3c2811781aba63f16cbaa2c.jpg">
 				<p>Kitchen Essentials</p>
@@ -254,8 +310,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				
 				<img class="img-thumbnail"  src="https://www.kenresearch.com/blog/wp-content/uploads/2018/04/Asia-Pacific-Home-Furnishings-Market-Outlook.jpg">
@@ -264,8 +320,8 @@
 				</a>
    			 </div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/2090/3151/collections/IMG_8478_grande_8106a98e-7efe-4434-b631-f8e6e463fc64.jpg?v=1565498158">
 				<p>Pooja Essentials<p>
@@ -273,8 +329,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://cdn2.hubspot.net/hubfs/2731727/Imported_Blog_Media/cleaning-essentials.jpg">
 				<p>Home Cleaning Essentials</p>
@@ -287,10 +343,15 @@
 	<% row = row +1  %>
     <% col = 1  %>
 	<div class="conatiner-fluid">
-		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4 border p-2 my-2 justify-content-around">
+		<div>
+  			<h2 class="categories">
+				Books, Stationary and Pets
+			</h2>
+		</div>
+		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4  p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test ">
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div  class="images  ">
 				<img class="img-thumbnail" src="https://previews.123rf.com/images/terdpong/terdpong1808/terdpong180800230/112227436-stationary-vector-collection-design-stationery-vector-collection-design.jpg">
 				<p>Stationery</p>
@@ -298,8 +359,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				
 				<img class="img-thumbnail"  src="https://scholarlykitchen.sspnet.org/wp-content/uploads/2017/02/iStock-501794256.jpg">
@@ -308,8 +369,8 @@
 				</a>
    			 </div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202004/e-learning_digital_education-770x433.jpeg?LaMtJoQ83Wr4.nEmUI69c8k3PdW5ht_M">
 				<p>Digital and E-Learning</p>
@@ -317,8 +378,8 @@
 				</a>
 			</div>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-3  col-test " >
-				<a class="w-100" href = "<%- url %>" <% col = col+1 %>>
+			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
+				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
 				<div class="images  ">
 				<img class="img-thumbnail"  src="https://www.themoderndaygirlfriend.com/wp-content/uploads/unnamed-3-3.jpg">
 				<p>Pet Essentials</p>
