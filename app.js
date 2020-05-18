@@ -67,7 +67,11 @@ app.post("/", function(req, res){
 			res.redirect("/");
 		}
 		else{
-			res.render("home.ejs", {login: true, user: foundUser[0]});
+			if(foundUser[0].verified)
+				res.render("home.ejs", {login: true, user: foundUser[0]});
+			else{
+				res.send("Please Verify your account");
+			}
 		}
 	})
 });
