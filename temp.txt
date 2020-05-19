@@ -25,3 +25,7 @@
     </div>
   </div>
 </div>
+"<a class='navbar-brand' href="/"><span class='brand-text1'>add</span><img class='brand-img' src ='https://cdn.pixabay.com/photo/2016/02/05/15/12/two-1181082_960_720.png'><span class='brand-text2'>kart</span></a>"
+
+ background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+			  background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

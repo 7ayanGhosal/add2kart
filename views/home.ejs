@@ -1,6 +1,6 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com/'; %>
+<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com'; %>
 <% var url %>
 
 
@@ -84,11 +84,20 @@
 		p{
 			margin-top:5px;	
 		}
+		.contact{
+			background:#86af49;
+			color:white;
+			opacity:0.8;
+			padding-top:15px;
+			border-radius:25px 25px 0 0;
+			
+		}
+	
 		
 		
 	</style>
 </head>	
-<body>	
+<body>		
 		<% if(login == true) {%>
 				<%- include("partials/navbar1")%>
 		<%} else {%>
@@ -152,242 +161,574 @@
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
 			
 			<div class="col col-11 col-sm-5 col-xl-2 col-test">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images ">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://www.nestlehealthscience.us/asset-library/PublishingImages/products/us-products/CBE-HighProtein.jpg">
 				<p>Beverages and Breakfast Essentials</p>
 				</div>
-					</a>
+				</button>
+				</form>
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2 col-test" >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://4.imimg.com/data4/AP/GM/MY-2061378/ready-to-eat-snacks-250x250.jpg">
 				<p>Snacks and Ready to Eat</p>
 				</div>
-				</a> 
+				</button>
+				</form>
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2 col-test  " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/81w6pMmsHmL._AC_SX522_.jpg">
 				<p>Cooking and Baking Essentials</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2 col-test  " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://vitential.co.uk/wp-content/uploads/2020/03/Vitential-products2a.png">
 				<p>Health and Supplements</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
 <!--row 2-->
 	<% row = row +1  %>
     <% col = 1  %>
+	
+	
+	
+	
 	<div class="conatiner-fluid">
 		<div>
   			<h2 class="categories">
 				Grooming and Hygiene
 			</h2>
 		</div>
-		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4  p-2 my-2 justify-content-around">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
-					<img class="img-thumbnail"   src="https://miro.medium.com/max/1200/1*rmasAHLYEosrR96D-QUwGQ.jpeg">
+			
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
+				<img class="img-thumbnail"   src="https://miro.medium.com/max/1200/1*rmasAHLYEosrR96D-QUwGQ.jpeg">
 					<p>Masks</p>
 				</div>
-				</a>
-				</div>
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
-				
-				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/1089/4204/products/evolve-beauty-products-organic-haircare-essentials-giftset-4836865703980_600x.jpg?v=1581520763">
-				<p>Hair Care Essentials</p>
-				</div>
-				</a>
-   			 </div>			
-		
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
-				<img class="img-thumbnail"  src="https://i.ytimg.com/vi/lnrMl27kESY/maxresdefault.jpg">
-				<p>Skin Care Essentials</p>
-				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2 col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
+				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/1089/4204/products/evolve-beauty-products-organic-haircare-essentials-giftset-4836865703980_600x.jpg?v=1581520763">
+				<p>Hair Care Essentials</p>
+				</div>
+				</button>
+				</form>
+			</div>
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
+				<img class="img-thumbnail"  src="https://i.ytimg.com/vi/lnrMl27kESY/maxresdefault.jpg">
+				<p>Skin Care Essentials</p>
+				</div>
+				</button>
+				</form>
+			</div>
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://cdn.shopify.com/s/files/1/0122/2033/4180/files/Personal_Care_banner.jpg?12209">
 				<p>Personal Care Essentials</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
+	
 <!--row 3-->
-	<% row = row +1  %>
-    <% col = 1  %>
-	<div class="conatiner-fluid">
+	
+		<% row = row +1  %>
+   		<% col = 1  %>
+	
+	
+		<div class="conatiner-fluid">
 		<div>
   			<h2 class="categories">
 				Baby Care Essentials
 			</h2>
 		</div>
-		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4  p-2 my-2 justify-content-around">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
+			
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://thebabyspecialist.com.sg/media/catalog/category/Feeding.jpg">
 				<p>Feeding and Nursing</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
-				
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://ae01.alicdn.com/kf/HTB1To4vLMHqK1RjSZFgq6y7JXXac/6pcs-Cute-Car-Baby-Bedding-bumpers-Thicken-Crib-Bumpers-Around-Cushion-Cot-Protector-Sheet-Pillowcase-7Color.jpg">
 				<p>Baby Bedding</p>
 				</div>
-				</a>
-   			 </div>
+				</button>
+				</form>
+			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://designformankind.com/wp-content/uploads/2014/10/health-and-safety-essentials-for-baby.jpg">
 				<p>Health and Safety</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://www.bamboolik.eu/out/pictures/z1/97059_2_z1.jpg">
 				<p>Diapers</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
+	
+	
+
+
 <!--row 4-->
+	
+	
 	<% row = row +1  %>
-    <% col = 1  %>
-	<div class="conatiner-fluid">
+   		<% col = 1  %>
+	
+	
+		<div class="conatiner-fluid">
 		<div>
   			<h2 class="categories">
 				For Essential Home Needs
 			</h2>
 		</div>
-		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4  p-2 my-2 justify-content-around">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
+			
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://i.pinimg.com/originals/77/c2/dd/77c2ddb8a3c2811781aba63f16cbaa2c.jpg">
 				<p>Kitchen Essentials</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
-				
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://www.kenresearch.com/blog/wp-content/uploads/2018/04/Asia-Pacific-Home-Furnishings-Market-Outlook.jpg">
 				<p>Home Furnishings</p>
 				</div>
-				</a>
-   			 </div>
+				</button>
+				</form>
+			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://cdn.shopify.com/s/files/1/2090/3151/collections/IMG_8478_grande_8106a98e-7efe-4434-b631-f8e6e463fc64.jpg?v=1565498158">
 				<p>Pooja Essentials<p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://cdn2.hubspot.net/hubfs/2731727/Imported_Blog_Media/cleaning-essentials.jpg">
 				<p>Home Cleaning Essentials</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
+	
+	
 <!--row 5-->	
+	
+	
+		
+	
 	<% row = row +1  %>
-    <% col = 1  %>
-	<div class="conatiner-fluid">
+   		<% col = 1  %>
+	
+	
+		<div class="conatiner-fluid">
 		<div>
   			<h2 class="categories">
 				Books, Stationary and Pets
 			</h2>
 		</div>
-		<div style="font-family: 'Cinzel', serif;"  class="row row-cols-4  p-2 my-2 justify-content-around">
+		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 p-2 my-2 justify-content-around">
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test ">
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div  class="images  ">
+			
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail" src="https://previews.123rf.com/images/terdpong/terdpong1808/terdpong180800230/112227436-stationary-vector-collection-design-stationery-vector-collection-design.jpg">
 				<p>Stationery</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
-				
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://scholarlykitchen.sspnet.org/wp-content/uploads/2017/02/iStock-501794256.jpg">
 				<p>Academic Books</p>
 				</div>
-				</a>
-   			 </div>
+				</button>
+				</form>
+			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202004/e-learning_digital_education-770x433.jpeg?LaMtJoQ83Wr4.nEmUI69c8k3PdW5ht_M">
 				<p>Digital and E-Learning</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<div class="col col-11 col-sm-5 col-xl-2  col-test " >
-				<a class="category-link w-100" href = "<%- url %>" <% col = col+1 %>>
-				<div class="images  ">
+			<div class="col col-11 col-sm-5 col-xl-2 col-test">
+				<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				<div  class="images category-link w-100">
 				<img class="img-thumbnail"  src="https://www.themoderndaygirlfriend.com/wp-content/uploads/unnamed-3-3.jpg">
 				<p>Pet Essentials</p>
 				</div>
-				</a>
+				</button>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
+	
+	<!--contact section-->
+	
+	<section class="contact" id="contact" style="margin-left:10px,margin-right:10px;">
+	<div class="container-fluid text-center m-auto p-0">
+		
+		<div   style="margin:20px;" class="row">
+			
+			<div class="col-md-12 text-center">
+				 
+				<h2>
+					CONTACT US
+				</h2>
+				
+			</div>
+				<div class="col-md-4 col-sm-4 m-auto ">
+					<i class="fa fa-envelope fa-2x">
+					
+					</i>
+					<p>assist.add2kart@gmail.com</p>
+				</div>
+				<div class="col-md-4 col-sm-4 m-auto">
+					 <i class="fas fa-map-marker-alt fa-2x"></i>
+					<p>
+						KOLKATA
+						<br>
+						PIN-700106
+					</p>
+				</div>
+				<div class="col-md-4 col-sm-4 m-auto">
+					<i class="fa fa-phone fa-2x">
+					
+					</i>
+					<p>+033-2441139</p>
+				</div>
+			</div>
+		</div>
+		<div  style="padding-top:0%; width:90%" class="row m-auto">
+			<div class="col-md-12 text-center m-auto">
+				<form id="contact-form" name="contact" method="POST" action="/review" novalidate="novalidate">
+					<div class="row m-0">
+						<div class="col p-0 m-0"></div>
+						<div class="col-lg-3 col-md-4 col-sm-6 m-auto">
+							<div class="form-group">
+								<input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6  m-auto">
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="col p-0 m-0"></div>
+					</div>
+					<div class="row text-center m-0">
+					<div class="col-md-6  m-auto">
+						<div class="form-group">
+						<textarea name="message" id="message" class="form-control w-100" rows="4" placeholder="Help us make ourselves better!" required></textarea>
+						<p class="help-block text-danger"></p>
+					</div>
+						</div>
+					<div style="padding-bottom:10px;" class="col-md-12 col-xs-12">
+						<button id="submit" type="submit" name="submit" class="btn btn-lg  btn-danger">
+							THANK YOU!
+						</button>
+					</div>
+					
+					</div>
+				</form>
+				
+			</div>
+			</div>
+	
+	</section>
+	
+	
+	
+	
+<!--  MESSAGE DISPLAY	 -->
+<!-- Button trigger modal -->
+<button id = "messageButton" type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+<% if(message != null){ %>	
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">MESSAGE FROM SERVER :</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <%- message %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%}%>	
+<script>
+	document.getElementById("messageButton").click();
+</script>
+<!--  MESSAGE END	 -->
+	
+	
+
+                                    
+                                    
+
+	
+<%- include("partials/footer")%>	
 </body>
 </html>
