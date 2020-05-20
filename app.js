@@ -1,4 +1,4 @@
-var HOMELINK = 'http://salty-forest-66171.herokuapp.com';
+var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io';
 var request = require('request')
 var express = require('express');
 var app = express();
@@ -50,7 +50,10 @@ var userSchema = new mongoose.Schema({
 	verified: Boolean,
 	zip:Number,
 	city:String,
-	address: String
+	address: String,
+	balance:Number,
+	cart:Array,
+	cartValue:Number
 });
 
 //------------------------------------------------MODEL
@@ -117,7 +120,10 @@ app.post("/signup", function(req, res){
 	var zip = 777777;
 	var city = "Not provided";
 	var verified = false;
-    var newUser = {name: name, surname:surname, email: email, address:address , password: password, birthday: birthday, verified: verified, zip:zip, city:city};
+	var balance = 100000;
+	var cart = [];
+	var cartValue = 0;
+    var newUser = {name: name, surname:surname, email: email, address:address , password: password, birthday: birthday, verified: verified, zip:zip, city:city , balance:balance, cart:cart, cartValue:cartValue};
     //check if user already exists
     User.find({email: email}, function(err, foundUser){
         var len = foundUser.length;
@@ -206,7 +212,7 @@ app.post("/category/:row/:col", function(req, Res){
 			if(foundCat.length == 0)
 				Res.redirect("/");
 			else{
-				Res.render("items.ejs",{login:false, user:null, cat: foundCat[0]});
+				Res.render("items.ejs",{login:false, user:null, cat: foundCat[0], message:null});
 			}
 		});
 	}else
@@ -221,14 +227,13 @@ app.post("/category/:row/:col", function(req, Res){
 					if(foundCat.length == 0)
 						Res.redirect("/");
 					else{
-						Res.render("items.ejs",{login:true, user:foundUser[0], cat: foundCat[0]});
+						Res.render("items.ejs",{login:true, user:foundUser[0], cat: foundCat[0], message:null});
 					}
 				})
 			}
 		})
 	}	
 });
-
 
 app.post("/update-info/:email", function(req, Res){
 	var email = req.params.email;
@@ -256,6 +261,78 @@ app.post("/update-info/:email", function(req, Res){
 		}
 	})
 });
+
+///////////////////////////////////////////////////////////////////////////////////////////ADD TO CART
+app.post("/add-to-cart/:row/:col", function(req, res){
+	var row = req.params.row;
+	var col = req.params.col;
+	var email = req.body.email;
+	var password = req.body.password;
+	var title = req.body.title;
+	var price = req.body.price;
+	var image = req.body.image;
+	var quantity = 1;
+	var cart = [];
+	var userquery = {email:email, password:password};
+	var catquery = {row: row, col: col};
+	User.find(userquery,function(err, foundUser){
+		if(err){
+			console.log("ERROR IN ADD TO CART POST REQ");
+			res.redirect('/');
+		}
+		else
+		{
+			if(foundUser.length == 0){
+				Category.find(catquery, function(err, foundCat){
+					if(foundCat.length == 0)
+						res.redirect("/");
+					else{
+						res.render('items.ejs', {login: false, user: null, cat: foundCat[0], message:'YOU NEED TO LOGIN FIRST!!!'});
+					}
+				})
+			}
+			else if(foundUser.length == 1)
+			{
+				cart = foundUser[0].cart;
+				cart.forEach(function(item){
+					if(item.title == title){
+						item.quantity += quantity;
+						quantity -= 1;
+						foundUser[0].cart = cart;
+						foundUser[0].cartValue += Number(price.slice(1));
+					}
+				})
+				if(quantity == 1){
+					cart.push({title:title, price:price, image:image, quantity:quantity});
+					foundUser[0].cart = cart;
+					foundUser[0].cartValue += Number(price.slice(1));
+				}
+				User.updateOne(userquery, {cart:cart, cartValue: foundUser[0].cartValue}, function(err, Res){
+					if(err){
+						console.log("ERROR IN CART UPDATION!");
+						res.redirect('/');
+					}
+					else
+					{
+						Category.find(catquery, function(err, foundCat){
+							if(foundCat.length == 0)
+								res.redirect("/");
+							else{
+								res.render("items.ejs",{login:true, user:foundUser[0], cat: foundCat[0], message:"Added to cart!"});
+							}
+						})
+					}
+				})
+			}
+			else{
+				console.log("MORE THAN ONE USER!!!");
+				res.redirect('/');
+			}
+		}
+	})
+});
+
+
 
 app.get("/images", function(req, res){
 	Category.find({}, function(err, foundCat){

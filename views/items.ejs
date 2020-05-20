@@ -1,6 +1,6 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com'; %>
+<% var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io'; %>
 <% var url %>
 <%- include("partials/header")%>
 
@@ -16,7 +16,7 @@
 			border:3px solid orangered;
 			overflow:hidden;
 			/* background-color: #00c21d; */
-background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+/*background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 		
 		}
@@ -28,8 +28,9 @@ background-image: url("https://www.transparenttextures.com/patterns/tileable-woo
 			background:white;
 			border:0;
 		}
-		.items:hover{
-			box-shadow: 10px 10px;
+		.col-test:hover{
+			background-color:rgba(44, 130, 201, 0.6);
+			box-shadow: 0 0 13px black;
 		}
 		.rating{
 			background:#EA4335;
@@ -62,7 +63,7 @@ background-image: url("https://www.transparenttextures.com/patterns/tileable-woo
 			font-size:20px;
 			padding:50px 50px 50px 50px;
 			margin:0;
-			color:white;
+			color:lightblue;
 			
 		}
 		.add-to-cart{
@@ -82,7 +83,7 @@ background-image: url("https://www.transparenttextures.com/patterns/tileable-woo
 			padding-bottom:4px;
 			background:orangered;
 			/* background-color: #c2302b; */
-background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
+/*background-image: url("https://www.transparenttextures.com/patterns/basketball.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 			border-radius:8px 8px 0 0;
 			opacity:1;
@@ -101,12 +102,21 @@ background-image: url("https://www.transparenttextures.com/patterns/basketball.p
 			
 		}
 		.division-3{
-			background:gold;
+			
 			padding-top:20x;
 			color:white;
-			background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
-			opacity:1;
+			/*background-image: url("https://www.transparenttextures.com/patterns/tileable-wood.png");
+			opacity:1;*/
 		}
+		.contact{
+			background:#86af49;
+			color:white;
+			opacity:0.8;
+			padding-top:15px;
+			border-radius:25px 25px 0 0;
+			
+		}
+	
 		
 	</style>
 	
@@ -118,12 +128,28 @@ background-image: url("https://www.transparenttextures.com/patterns/basketball.p
 		<%} else {%>
 				<%- include("partials/navbar2")%>	
 	<%}%>
+
 	<div  class="conatiner-fluid w-100 overflow-hidden">
 		<div style="font-family: 'Cinzel', serif;" class="row row-cols-4 border p-2 my-2 justify-content-around">
 			<% for(var i=0; i<cat.elements.length; i++) { %>
 			<div  class="col col-9 col-sm-5 col-lg-3 col-xl-2 col-test">
 				<div class="w-100 division-1">
-					<p><span class="price"><%- cat.elements[i].price%></span> <span class="add-to-cart"><button type="button" class="btn btn-outline-light" ><i class="fas fa-cart-plus"></i></button></span></p>
+					<p><span class="price"><%- cat.elements[i].price%></span> <span class="add-to-cart">
+						<form action="/add-to-cart/<%-cat.row%>/<%-cat.col%>" method="post">
+							<%if(login == true){%>
+								<input  class="d-none" name = "email" value = "<%- user.email%>" />
+								<input  class="d-none" name = "password" value = "<%- user.password%>" />
+							<% }else {%>
+								<input  class="d-none" name = "email" value = "null" />
+								<input  class="d-none" name = "password" value = "null" />
+							<%}%>
+							<input  class="d-none" name = "title" value = "<%-cat.elements[i].title%>" />
+							<input  class="d-none" name = "price" value = "<%- cat.elements[i].price%>" />
+							<input  class="d-none" name = "image" value = "<%- cat.elements[i].image%>" />
+							<input  class="d-none" name = "quantity" type="NUMBER" value = "1" />
+								<button type="submit" class="btn btn-outline-warning" ><i class="fas fa-cart-plus"></i></button>
+						</form>
+					</span></p>
 				</div>
 				<div class="w-100 images division-2">
 					<img class="img-thumbnail" src="<%- cat.elements[i].image%>">
@@ -133,9 +159,130 @@ background-image: url("https://www.transparenttextures.com/patterns/basketball.p
 					<p><span class="rating"><i class="fas fa-star"></i> <%- cat.elements[i].rating%></span> <span class="number-of-ratings"><%- cat.elements[i].noOfRating%></span></p>
 				</div>
 			</div>
+			
 			<% } %>
 		</div>
+		
 	</div>
+	
+<!--action:    
+inputs:
+var email = req.body.email;
+	var title = req.body.title;
+	var price = req.body.price;
+	var image = req.body.image;
+	var quantity = 1;
+-->
+	
+	<!-- contact section-->
+<section class="contact" id="contact" style="margin-left:10px,margin-right:10px;">
+	<div class="container-fluid text-center m-auto p-0">
+		
+		<div   style="margin:20px;" class="row">
+			
+			<div class="col-md-12 text-center">
+				 
+				<h2>
+					CONTACT US
+				</h2>
+				
+			</div>
+				<div class="col-md-4 col-sm-4 m-auto ">
+					<i class="fa fa-envelope fa-2x">
+					
+					</i>
+					<p>assist.add2kart@gmail.com</p>
+				</div>
+				<div class="col-md-4 col-sm-4 m-auto">
+					 <i class="fas fa-map-marker-alt fa-2x"></i>
+					<p>
+						KOLKATA
+						<br>
+						PIN-700106
+					</p>
+				</div>
+				<div class="col-md-4 col-sm-4 m-auto">
+					<i class="fa fa-phone fa-2x">
+					
+					</i>
+					<p>+033-2441139</p>
+				</div>
+			</div>
+		</div>
+		<div  style="padding-top:0%; width:90%" class="row m-auto">
+			<div class="col-md-12 text-center m-auto">
+				<form id="contact-form" name="contact" method="POST" action="/review" novalidate="novalidate">
+					<div class="row m-0">
+						<div class="col p-0 m-0"></div>
+						<div class="col-lg-3 col-md-4 col-sm-6 m-auto">
+							<div class="form-group">
+								<input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6  m-auto">
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="col p-0 m-0"></div>
+					</div>
+					<div class="row text-center m-0">
+					<div class="col-md-6  m-auto">
+						<div class="form-group">
+						<textarea name="message" id="message" class="form-control w-100" rows="4" placeholder="Help us make ourselves better!" required></textarea>
+						<p class="help-block text-danger"></p>
+					</div>
+						</div>
+					<div style="padding-bottom:10px;" class="col-md-12 col-xs-12">
+						<button id="submit" type="submit" name="submit" class="btn btn-lg  btn-danger">
+							THANK YOU!
+						</button>
+					</div>
+					
+					</div>
+				</form>
+				
+			</div>
+			</div>
+	
+	</section>
+
 	<%- include("partials/footer")%>
+	
+	
+	
+	<!--  MESSAGE DISPLAY	 -->
+	<!-- Button trigger modal -->
+	<button id = "messageButton" type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#staticBackdrop">
+	  Launch static backdrop modal
+	</button>
+	<% if(message != null){ %>	
+
+	<!-- Modal -->
+	<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered ">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="staticBackdropLabel">MESSAGE FROM SERVER :</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			  <%- message %>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<%}%>	
+	<script>
+		document.getElementById("messageButton").click();
+	</script>
+	<!--  MESSAGE END	 -->
+	
+	
 </body>
 </html>

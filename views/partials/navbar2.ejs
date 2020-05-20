@@ -1,6 +1,6 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com'; %>
+<% var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io'; %>
 <% var url %>
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top">
   <a class="navbar-brand" href="/"><span class='brand-text1'>add</span><img class='brand-img' src ='https://cdn.pixabay.com/photo/2016/02/05/15/12/two-1181082_960_720.png'><span class='brand-text2'>kart</span></a>
@@ -18,121 +18,381 @@
         <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Spinnaker', sans-serif;"><i class="fas fa-pizza-slice "> </i> FOOD
         </a>
         <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
+				
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url %>">Breakfast</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+          
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Breakfast
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url %>">Snacks</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Snacks
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url %>">Cooking</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Cooking
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url %>">Health Supplements</a>
-        </div>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Health Supplements
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			</div>
       </li>
 		<!--GROOMING-->
 		<li class="nav-item dropdown">
-        <a style="font-family: 'Spinnaker', sans-serif;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bath "></i> GROOMING
+		<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Spinnaker', sans-serif;"><i class="fas fa-pizza-slice "> </i> GROOMING
         </a>
-			<% row = row +1  %>
-    		<% col = 1  %>
-			
+		
         <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
-          <% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<a class="dropdown-item" href="<%- url%>">Masks</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+				<% row = row +1  %>
+    		<% col = 1  %>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url%>">Hair Care</a>
-          	<div class="dropdown-divider"></div>
-			<%col=col+1%>
+          
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Masks
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url%>">Skin Care</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Hair Care
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%- url%>">Personal Care</a>
-        </div>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Skin Care
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Personal Care
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		</div>
+	
       </li>
 		
+		
 		<!--BABY-->
+		
 		<li class="nav-item dropdown">
-        <a style="font-family: 'Spinnaker', sans-serif;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-baby "> </i> BABY
+		<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Spinnaker', sans-serif;"><i class="fas fa-pizza-slice "> </i> BABY
         </a>
+		
+        <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
 			<% row = row +1  %>
     		<% col = 1  %>
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+          	
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Health and Safety
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
 			
-        <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
-          <% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<a class="dropdown-item" href="<%-url%>">Heath and Safety</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Baby Bath</a>
-          	<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Baby Bedding
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Feeding and Nursing</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Feeding and Nursing
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Baby Bedding</a>
-        </div>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Diapers
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		</div>
+	
       </li>
+		
 		
 		<!--ESSENTIALS-->
 			
 		<li class="nav-item dropdown">
-        <a style="font-family: 'Spinnaker', sans-serif;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bed "> </i> ESSENTIALS
+		<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Spinnaker', sans-serif;"><i class="fas fa-pizza-slice "> </i> ESSENTIALS
         </a>
 			
-
         <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
-          <% row = row +1  %>
-    		<% col = 1  %>
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-			<a class="dropdown-item" href="<%-url%>">Home Furnishings</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Kitchen Essentials</a>
-          	<div class="dropdown-divider"></div>
-			<%col=col+1%>
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Bedding</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
-			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Water Filter</a>
-        </div>
-      </li>
-		<!--BOOKS-->
-		<li class="nav-item dropdown">
-        <a style="font-family: 'Spinnaker', sans-serif;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-book "> </i> BOOKS
-        </a>
 			<% row = row +1  %>
     		<% col = 1  %>
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-        <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<%-url%>">Stationary</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+          	
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Kitchen Essentials
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Academic Books</a>
-          	<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Bedding
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Digital Learning</a>
-			<div class="dropdown-divider"></div>
-			<%col=col+1%>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Water Filter
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
 			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
-          <a class="dropdown-item" href="<%-url%>">Pet Essentials</a>
-        </div>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Home Cleaning Essentials
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		</div>
+	
       </li>
+		
+	
+		<!--BOOKS-->
+		
+		<li class="nav-item dropdown">
+		<a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: 'Spinnaker', sans-serif;"><i class="fas fa-pizza-slice "> </i> BOOKS
+        </a>
+			<% row = row +1  %>
+    		<% col = 1  %>
+        <div class="dropdown-menu text-center bg-light" aria-labelledby="navbarDropdown">
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+          
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Stationary
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Academic Books
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			<div class="dropdown-divider"></div>
+			
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Digital Learning
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+			
+			
+			<% url = HOMELINK +"/category/"+ row +"/"+ col %>
+			<form action = "<%- url %>" <% col = col+1 %> method="post">
+				<%if(login == true){%>
+					<input  class="d-none" name = "email" value = "<%- user.email%>" />
+					<input  class="d-none" name = "password" value = "<%- user.password%>" />
+				<% }else {%>
+					<input  class="d-none" name = "email" value = "null" />
+					<input  class="d-none" name = "password" value = "null" />
+				<%}%>
+				<button class="dropdown-item" type="submit" style="background:rgba(0, 0, 0, 0); border:0">
+				Pet Essentials
+				</button>
+				</form>
+				<div class="dropdown-divider"></div>
+		</div>
+	
+      </li>
+		
+
 		
 		<li class="nav-item">
    	    	 <a class="nav-link" style="font-family: 'Spinnaker', sans-serif;" href="#contact"><i class="fas fa-envelope"></i> CONTACT US</a>

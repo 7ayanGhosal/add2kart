@@ -1,7 +1,29 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'http://salty-forest-66171.herokuapp.com'; %>
+<% var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io'; %>
 <% var url %>
+
+<style>
+	.cart-image{
+		object-fit:cover;
+		width:50px;
+		height:50px;
+		margin:auto;
+	}
+	.increase{
+		
+		border-radius:27.2px;
+	}
+	.decrease{
+		
+		border-radius:27.2px;
+	}
+	
+
+</style>
+
+
+
 <nav class="navbar navbar-expand-xl navbar-dark fixed-top">
   <a class="navbar-brand" href="/"><span class='brand-text1'>add</span><img class='brand-img' src ='https://cdn.pixabay.com/photo/2016/02/05/15/12/two-1181082_960_720.png'><span class='brand-text2'>kart</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,11 +162,96 @@
 	  </ul>
 	
 	 <ul class="m-auto nav nav justify-content-center text-light">
-		 <a type="button" class="profile-pic" style="font-family: 'Orbitron', sans-serif;" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent"><i  class="fas fa-user-circle fa-2x navbar-user-profile "></i><%-"	"+"-"+user.name %></a>
+		 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart"><i class="fas fa-cart-plus"></i></button>
+		 <a type="button" class="profile-pic" style="font-family: 'Orbitron', sans-serif;" onclick="openNav()" data-toggle="collapse" data-target="#navbarSupportedContent"> <i  class="fas fa-user-circle fa-2x navbar-user-profile "></i><%-"	"+"-"+user.name %></a>
 	 </ul>
   	
 	</div>
 </nav>
+
+<!--- add to cart modal-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="w-100 ml-0 modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">CART INFORMATION</h5>
+      </div>
+      <div class="modal-body">
+        <%if(user.cart.length!=0) {%>
+		  
+		  <%var l=user.cart.length %>
+		  
+		  	<% for(var i=0;i<l;i++) {%>
+				
+					<div class="row" id="row<%-i%>">
+						<div class="col-9">
+							<%if(user.cart[i].title.length<=20){%>
+								<%-user.cart[i].title%>	
+							<%}else{%>
+								<%-user.cart[i].title.slice(0,20)%>...
+							<%}%>
+
+						</div>
+
+						<div class="col-3 ">
+							<img class="cart-image img-thumbnail" src="<%-user.cart[i].image%>">	
+						</div>
+
+						<div class="col-9 ">
+							Price-<%-user.cart[i].price%>
+						</div>
+
+						<div class="col-3">
+							<% var q=user.cart[i].quantity %>
+							Quantity-
+							<button type ="button" id="decrease<%-i%>" onclick="decrease(<%-i%>)">-</button>
+							<span id="quantity<%-i%>"><%- q %></span>
+							<button type ="button" id="increase<%-i%>" onclick="increase(<%-i%>)">+</button>
+						</div>
+						
+						<div class="col-12 p-3">
+							<button id="remove<%-i%>" type="button" class="btn btn-sm btn-danger m-auto" onclick="remove(<%-i%>)">Remove</button>  
+						 </div>
+					</div>	
+			
+		  		<hr style="height:2px;border-width:0;color:gray;background-color:black">
+		  
+		  	<%}%>
+		<%}%>
+      </div>
+      <div class="modal-footer">
+		<button type="button" class="btn btn-primary m-auto" data-dismiss="modal">Buy</button>
+        <button type="button" class="btn btn-secondary m-auto" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	function increase(x){
+		var q = document.getElementById("quantity"+x);
+		q.textContent = Number(q.textContent)+1;
+		document.getElementById("row"+x).style.background = "none";
+	}
+	function decrease(x){
+		var q = document.getElementById("quantity"+x);
+		q.textContent = Number(q.textContent)-1;
+		if(Number(q.textContent) <0){
+			q.textContent = "0";
+			document.getElementById("row"+x).style.background = "grey";
+		}
+	}
+	function remove(x){
+		var q = document.getElementById("quantity"+x);
+		q.textContent = "0";
+		document.getElementById("row"+x).style.background = "grey";
+	}
+</script>
+
+
 
 <div id = "helper"  style = "height:80px; display:flex"> </div>
 
