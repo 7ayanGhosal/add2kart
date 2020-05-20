@@ -239,7 +239,7 @@
 	function decrease(x){
 		var q = document.getElementById("quantity"+x);
 		q.textContent = Number(q.textContent)-1;
-		if(Number(q.textContent) <0){
+		if(Number(q.textContent) <=0){
 			q.textContent = "0";
 			document.getElementById("row"+x).style.background = "grey";
 		}
