@@ -185,7 +185,7 @@
 		  
 		  	<% for(var i=0;i<l;i++) {%>
 				
-					<div class="row" id="row<%-i%>">
+					<div class="row">
 						<div class="col-9">
 							<%if(user.cart[i].title.length<=20){%>
 								<%-user.cart[i].title%>	
@@ -204,15 +204,15 @@
 						</div>
 
 						<div class="col-3">
-							<% var q=user.cart[i].quantity %>
+							var q=<%-user.cart[i].quantity%>
 							Quantity-
-							<button type ="button" id="decrease<%-i%>" onclick="decrease(<%-i%>)">-</button>
-							<span id="quantity<%-i%>"><%- q %></span>
-							<button type ="button" id="increase<%-i%>" onclick="increase(<%-i%>)">+</button>
+							<button class="increase"type="number">-</button>
+							<span class="quantity"><%- q %></span>
+							<button class="decrease" type="number">+</button>
 						</div>
 						
 						<div class="col-12 p-3">
-							<button id="remove<%-i%>" type="button" class="btn btn-sm btn-danger m-auto" onclick="remove(<%-i%>)">Remove</button>  
+							<button type="button" class="btn btn-sm btn-danger m-auto" data-dismiss="modal">Remove</button>  
 						 </div>
 					</div>	
 			
@@ -231,24 +231,19 @@
 </div>
 
 <script>
-	function increase(x){
-		var q = document.getElementById("quantity"+x);
-		q.textContent = Number(q.textContent)+1;
-		document.getElementById("row"+x).style.background = "none";
-	}
-	function decrease(x){
-		var q = document.getElementById("quantity"+x);
-		q.textContent = Number(q.textContent)-1;
-		if(Number(q.textContent) <=0){
-			q.textContent = "0";
-			document.getElementById("row"+x).style.background = "grey";
-		}
-	}
-	function remove(x){
-		var q = document.getElementById("quantity"+x);
-		q.textContent = "0";
-		document.getElementById("row"+x).style.background = "grey";
-	}
+	var c=0;
+	var increase=document.getElementsByClassName("increase");
+	var decrease=document.getElementsByClassName("decrease");
+	var quantity=document.getElementsByClassName("quantity");
+increase.addEventListner("click",function(){
+			c++;
+	quantity=c;
+						 });
+	decrease.addEventListner("click",function(){
+		c--;
+		quantity=c;
+	});
+	
 </script>
 
 
