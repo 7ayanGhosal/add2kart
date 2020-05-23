@@ -1,6 +1,6 @@
 <% var row = 1 %>
 <% var col = 1 %>
-<% var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io'; %>
+<% var HOMELINK = 'https://add2kart.herokuapp.com'; %>
 <% var url %>
 
 <style>
@@ -25,12 +25,12 @@
 	function postForm() {
 		var inc = document.getElementsByClassName("increase");
 		var quantity = "[";
+		quantity += "<%- user.email%>,<%- user.password%>,";
 		for(var i=0; i<inc.length; i++){
 			quantity += document.getElementById("quantity"+i).textContent;
 			quantity += ',';
 		}
 		quantity += "]";
-		
 		var form = document.createElement('form');
 		form.method = "post";
 		form.action = "/saved-to-cart";
@@ -38,17 +38,8 @@
 		hiddenField.name = "quantity";
 		hiddenField.value = quantity;
 		form.appendChild(hiddenField);
-		hiddenField.name = "email";
-		hiddenField.value = "<%- user.email%>";
-		form.appendChild(hiddenField);
-		hiddenField.name = "password";
-		hiddenField.value = "<%- user.password%>";
-		form.appendChild(hiddenField);
-		
 		document.body.appendChild(form);
-		console.log(form);
 		form.submit();
-		// console.log(quantity);
 	}
 	function increase(x){
 		var q = document.getElementById("quantity"+x);
@@ -61,15 +52,15 @@
 	}
 	function decrease(x){
 		var q = document.getElementById("quantity"+x);
-		q.textContent = Number(q.textContent)-1;
-		if(Number(q.textContent) <=0){
-			q.textContent = "0";
-			document.getElementById("row"+x).style.background = "grey";
-			return;
-		}
 		var cartValue = Number(document.getElementById("cartValue").textContent);
 		var price = Number(document.getElementById("price"+x).textContent.slice(1));
-		document.getElementById("cartValue").textContent = cartValue - price;
+		if(Number(q.textContent) >0){
+			document.getElementById("cartValue").textContent = cartValue - price;
+			q.textContent = Number(q.textContent)-1;
+		}
+		if(Number(q.textContent) == 0){
+			document.getElementById("row"+x).style.background = "grey";
+		}
 	}
 	function remove(x){
 		var q = document.getElementById("quantity"+x);
@@ -552,17 +543,100 @@
 		  		<hr style="height:2px;border-width:2px;color:grey;" class="mt-0 mb-0">
 		  
 		  	<%}%>
-		<%}%>
+		<%}else{%>
+		  	<p>CART IS EMPTY!</p>
+		  <%}%>
       </div>
       <div class="modal-footer">
-		<button type="button" class="btn btn-primary m-auto" data-dismiss="modal">Buy</button>
-		 <button onclick="postForm()" >Save Changes to cart</button>
+		  <%if(user.cart.length != 0) {%>
+		<button type="button" class="btn btn-primary m-auto" data-toggle="modal" data-target="#buyCart" data-dismiss="modal">Buy</button>
+		<%}else{%>
+		  <button type="button" class="btn btn-primary m-auto" data-toggle="modal" data-target="#buyCart" data-dismiss="modal" disabled>Buy</button>
+		  <%}%>
+		  <button class="btn btn-success m-auto" onclick="postForm()" >Save Changes to cart</button>
         <button type="button" class="btn btn-secondary m-auto" data-dismiss="modal">Close</button>
         
       </div>
     </div>
   </div>
 </div>
+
+<!--buy modal inside addToKart modal-->
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<form action="/order-placed"  method="post">
+	
+		<input  class="d-none" name = "email" value = "<%- user.email%>" />
+		<input  class="d-none" name = "password" value = "<%- user.password%>" />
+	
+<div class="modal fade" id="buyCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header ">
+        <h5 class="modal-title m-auto" id="exampleModalLongTitle">SHIPPING DETAILS</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+				<div class="form-group col-md-6">
+				  <label for="inputCity">Name</label> 
+					<% if (user.name == "Not provided"){%>
+						<%user.name=null%>
+					  <%}%>
+				  <input type="text" class="form-control" id="name" name = "name" value="<%-user.name%>" maxlength="25" required>
+				</div>
+			
+				<div class="form-group col-md-6">
+				  <label for="surname">Surname</label>
+				  <input type="text" class="form-control" id="surname" name = "surname" value="<%-user.surname%>" maxlength="25" >
+				</div>
+		  </div>
+		  
+		  <div class="form-group">
+				<label for="inputAddress">Address:</label>
+			  <% if (user.address == "Not provided"){%>
+			  	<%user.address=null%>
+			  <%}%>
+			  	PLease fill up the address section.
+				<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" value="<%-user.address%>" name='address' maxlength="50" required>
+			  </div>
+		  <div class="form-row">
+				<div class="form-group col-md-6">
+				  <label for="inputCity">City</label>
+					<% if (user.city == "Not provided"){%>
+						<%user.city=null%>
+					  <%}%>
+				  <input type="text" class="form-control" id="inputCity" name = "city" value="<%-user.city%>" maxlength="35" required>
+				</div>
+				<div class="form-group col-md-6">
+				  <label for="inputZip">Zip</label>
+					<% if (user.zip == 777777){%>
+						<%user.zip=null%>
+					  <%}%>
+				  <input type="Number" class="form-control" id="inputZip" value="<%-user.zip%>" name='zip' min="111111" max="777777" required>
+				</div>
+			  </div>
+			  <div class="form-group m-2">
+					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" id="gridCheck" required>
+					  <label class="form-check-label" for="gridCheck">
+						Check me out
+					  </label>
+					</div>
+				</div>
+      </div>
+	
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success m-auto">Proceed to BUY</button>
+		<button type="button" class="btn btn-dark m-auto" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
 
 
 
@@ -586,17 +660,80 @@
   <p id="sidenav-para" class="sidenav-content" >ZIP <span class="text-light"><%- '  :  '+user.zip%></span></p>
 	<hr class="sidenav-line">
   <p id="sidenav-para" class="sidenav-content" >CITY <span class="text-light"><%- '  :  '+user.city%></span></p>
+	<hr class="sidenav-line">
+  <p id="sidenav-para" class="sidenav-content" >BALANCE <span class="text-light"><%- '  :  ₹'+user.balance%></span></p>
 	
 	<hr class="sidenav-top-line">
 	<div class="button-property">
+		<button type="button" class="btn btn-lg  btn-light " data-toggle="modal" data-target="#orders">
+			ORDERS
+		</button>
+		
 		<button type="button" class="btn btn-lg  btn-light " data-toggle="modal" data-target="#update-info-modal">
 			UPDATE INFO
 		</button>
-
+<!--- order modal-->
 <!-- Modal -->
+<div class="modal fade" id="orders" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">PREVIOUS ORDERS</h5>
+      </div>
+      <div class="modal-body">
+	  <div class="container-fluid">
+		  <% for(var i=0;i<user.orders.length;i++){ %>
+		  
+			  <div class="row">
+				  <div class="col-12">
+					NAME : <%-user.orders[i].name%> <%-user.orders[i].surname%>	  
+				  </div>
+			  </div>
+			  <div class="row">
+				  <div class="col-12">
+					ADDRESS : <%-user.orders[i].address%>	  
+				  </div>
+
+			  </div>		    
+				<div class="row">
+					<div class="col-6">
+						CITY : <%-user.orders[i].city%>	
+
+					</div>
+					<div class="col-6">
+						ZIP : <%-user.orders[i].zip%>
+					</div>	
+			  </div>
+			  <div class="row">
+				  <div class="col-12">
+					TOTAL AMOUNT TO BE PAID : <%-user.orders[i].amount%>	  
+				  </div>
+			  </div>
+		  <hr>
+		  <% } %>
+		  
+		  
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark m-auto" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<!-- update Modal -->
 <form action="/update-info/<%-user.email%>" method="post">
 <div class="modal fade update-form" id="update-info-modal" tabindex="-1" role="dialog" aria-labelledby="update-info-modal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title m-auto" id="exampleModalLongTitle">UPDATE INFO</h5>

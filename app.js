@@ -1,4 +1,4 @@
-var HOMELINK = 'https://add2kart.run-ap-south1.goorm.io';
+var HOMELINK = 'https://add2kart.herokuapp.com';
 var request = require('request')
 var express = require('express');
 var app = express();
@@ -23,9 +23,7 @@ var mailtext1 =
  var mailtext2 = "</h3><p>To complete your sign up, please verify your email :</p>"+"<div class='button' style='margin:10px auto;text-align:center;background:orangered;padding-top:5px;padding-bottom:4px;width:45vw;max-width:500px;border-radius:5px; color:white'><a style='text-decoration:none;font-weight:700;margin:auto; color:white;' href ='"+HOMELINK+"/verify/";
  var mailtext3 = "'>Click HERE</a></div>"+"<p>Or copy this link and paste in your web browser</p><a style='color:orangered; margin:10px auto; text-decoration:none' href ='"+HOMELINK+"/verify/"
  var mailtext4 ="'>"+HOMELINK+"/verify/"
- var mailtext5 = "</a><hr style='border: 0; height: 1px; background-image: linear-gradient(to right, #f0f0f0, #00b9ff, #59d941, #f0f0f0);'><p style='color:lightgrey'>Cheers,<p><b>The add2kart Team</p></div>";
-
-
+ var mailtext5 = "</a><hr style='border: 0; height: 1px; background-image: linear-gradient(to right, #f0f0f0, #00b9ff, #59d941, #f0f0f0);'><p style='color:lightgrey'>Cheers,<p><b>The add2kart Team</p></div> <p style='color:red;'>MADE WITH ❤️ BY AYAN & SOHAM (BE,IT @JU)</p><p>(THIS IS JUST A PROJECT WORK ,PLEASE IGNORE THIS EMAIL IF WE MAILED THE WRONG PERSON.)</p>";
 
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -53,7 +51,8 @@ var userSchema = new mongoose.Schema({
 	address: String,
 	balance:Number,
 	cart:Array,
-	cartValue:Number
+	cartValue:Number,
+	orders:Array
 });
 
 //------------------------------------------------MODEL
@@ -334,15 +333,13 @@ app.post("/add-to-cart/:row/:col", function(req, res){
 
 
 /////////////////////////////////////////////////////////////////save changes to cart
-
 app.post("/saved-to-cart", function(req, res){
 	var quantity = req.body.quantity;
-	console.log(req.body);
 	    quantity = quantity.slice(1, quantity.length-2);
 	    quantity = quantity.split(',');
-	// console.log(quantity);
-	var email = req.body.email;
-	var password = req.body.password;
+	var email = quantity[0];
+	var password = quantity[1];
+	quantity = quantity.slice(2);
 	var userquery = {email:email, password:password};
 	var cartValue = 0;
 	User.find(userquery,function(err, foundUser){
@@ -358,11 +355,17 @@ app.post("/saved-to-cart", function(req, res){
 			else if(foundUser.length == 1)
 			{
 				cart = foundUser[0].cart;
-				for(var i=0; i<cart.length; i++){
+				for(var i=0; i<cart.length;){
 					cart[i].quantity = Number(quantity[i]);
-					cartValue += cart[i].quantity * Number(cart[i].price.slice(1));
+					if(cart[i].quantity == 0){
+						cart.splice(i,1);
+					}
+					else{
+						cartValue += cart[i].quantity * Number(cart[i].price.slice(1));
+						i++;
+					}
 				}
-				
+				foundUser[0].cartValue = cartValue;
 				User.updateOne(userquery, {cart:cart, cartValue: cartValue}, function(err, Res){
 					if(err){
 						console.log("ERROR IN CART UPDATION!");
@@ -382,6 +385,80 @@ app.post("/saved-to-cart", function(req, res){
 	})
 })
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////BUY
+app.post("/order-placed", function(req, res){
+	var name = req.body.name;
+    var surname = req.body.surname;
+	var address = req.body.address;
+    var email = req.body.email;
+    var password = req.body.password;
+	var zip = req.body.zip;
+	var city = req.body.city;
+    var order = {name: name, surname:surname, email: email, address:address , password: password, zip:zip, city:city, cart:[], amount:0};
+	var userquery = {email:email, password:password};
+	// console.log(userquery);
+	User.find(userquery,function(err, foundUser){
+		if(err){
+			console.log("ERROR IN BUY");
+			res.redirect('/');
+		}
+		else
+		{
+			if(foundUser.length == 0){
+				res.redirect("/");
+			}
+			else if(foundUser.length == 1)
+			{
+				if(foundUser[0].cartValue == 0){
+					res.render("home.ejs", {login: true, user: foundUser[0], message:"ADD SOMETHING TO CART!!"});
+
+				}
+				else if(foundUser[0].balance < foundUser[0].cartValue){
+					res.render("home.ejs", {login: true, user: foundUser[0], message:"INSUFFICIENT ACCOUNT BALANCE!!"});
+				}
+				else{
+					order.amount = foundUser[0].cartValue;
+					order.cart = foundUser[0].cart;
+					foundUser[0].orders.push(order);
+					foundUser[0].cart = [];
+					foundUser[0].cartValue = 0;
+					foundUser[0].balance = foundUser[0].balance - order.amount;
+					User.updateOne(userquery, {cart:[], cartValue: 0, orders: foundUser[0].orders, balance:foundUser[0].balance}, function(err, Res){
+						if(err){
+							console.log("ERROR IN BUY UPDATE!");
+							res.redirect('/');
+						}
+						else
+						{
+							//MAIL INVOICE
+							var mailOptions = {
+							  from: emailid,
+							  to: email,
+							  subject: 'ORDER PLACED',
+								html:mailtext1+"<span style='color:orangered; background:lightgrey; padding:2px; border-radius:20px;'>"+email+"</span>"+"</h3>"+"<p style='text:center;'>INVOICE</p>"+"<p>NAME : "+name+" "+surname+"</p>"+"<p>ADDRESS: "+address+"</p>"+"<p>CITY: "+city+"</p>"+"<p>ZIP: "+zip+"</p>"+"<p>TOTAL AMOUNT: "+order.amount+"</p>"+"<p>THANK YOU FOR SHOPPING WITH add2kart!</p>"+mailtext5
+							};
+
+							transporter.sendMail(mailOptions, function(error, info){
+							  if (error) {
+									console.log("error in transporter :"+error);
+									res.redirect("/");
+							  } else {
+									res.render("invoice.ejs", {login: true, user: foundUser[0], message:null, order:order});
+							  }
+							});
+						}
+					})
+				}
+			}
+			else{
+				console.log("MORE THAN ONE USER!!! in buy");
+				res.redirect('/');
+			}
+		}
+	})
+});
+	
+	
 app.get("/images", function(req, res){
 	Category.find({}, function(err, foundCat){
 		if(foundCat.length == 0){

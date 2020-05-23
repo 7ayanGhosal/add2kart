@@ -32,7 +32,7 @@
 		}
 		@media only screen and (max-width: 1199px) {
 			.mod-btn{
-				width:100%;
+				width:400px;
 			}
 		}
 		@media only screen and (min-width: 1200px) {
@@ -723,9 +723,61 @@
 </script>
 <!--  MESSAGE END	 -->
 	
-	
+	<!--confirmation buy modal-->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary d-none" data-toggle="modal" data-target="#confirmBuyCart" id="invoice">
+  
+</button>
 
-                                    
+<!-- Modal -->
+<div class="modal fade" id="confirmBuyCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Final Delivery Details</h5>
+      </div>
+      <div class="modal-body">
+	  <div class="container-fluid">
+		  <div class="row">
+			  <div class="col-12">
+				NAME : <%-order.name%> <%-order.surname%>	  
+			  </div>
+		  </div>
+	      <div class="row">
+			  <div class="col-12">
+				ADDRESS : <%-order.address%>	  
+			  </div>
+			  
+		  </div>		    
+     		<div class="row">
+				<div class="col-6">
+					CITY : <%-order.city%>	
+				
+				</div>
+				<div class="col-6">
+					ZIP : <%-order.zip%>
+				</div>	
+		  </div>
+		  <div class="row">
+			  <div class="col-12">
+				TOTAL AMOUNT TO BE PAID : <%-order.amount%>	  
+			  </div>
+		  </div>
+		 <p style="border:2px solid black">
+			 The abover information copy has been sent to your mail . Please check it for future purposes . THANK YOU FOR SHOPPING WITH add2kart!
+		  </p> 
+		 </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark m-auto" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	document.getElementById("invoice").click();
+</script>
                                     
 
 	
