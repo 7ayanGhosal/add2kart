@@ -92,6 +92,7 @@
 		}
 		.division-1 p{
 			margin-bottom:0;
+			text-align:center;
 			
 		}
 		
@@ -134,8 +135,8 @@
 			<% for(var i=0; i<cat.elements.length; i++) { %>
 			<div  class="col col-9 col-sm-5 col-lg-3 col-xl-2 col-test">
 				<div class="w-100 division-1">
-					<span class="price"><%- cat.elements[i].price%></span>
-						<span class="add-to-cart"><form action="/add-to-cart/<%-cat.row%>/<%-cat.col%>" method="post">
+					<p><span class="price p-0 m-0"><%- cat.elements[i].price%></span> <span class="add-to-cart p-0 m-0">
+						<form action="/add-to-cart/<%-cat.row%>/<%-cat.col%>" method="post">
 							<%if(login == true){%>
 								<input  class="d-none" name = "email" value = "<%- user.email%>" />
 								<input  class="d-none" name = "password" value = "<%- user.password%>" />
@@ -149,7 +150,7 @@
 							<input  class="d-none" name = "quantity" type="NUMBER" value = "1" />
 								<button type="submit" class="btn btn-outline-warning" ><i class="fas fa-cart-plus"></i></button>
 						</form>
-					</span>
+					</span></p>
 				</div>
 				<div class="w-100 images division-2">
 					<img class="img-thumbnail" src="<%- cat.elements[i].image%>">

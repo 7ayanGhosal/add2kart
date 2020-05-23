@@ -333,6 +333,54 @@ app.post("/add-to-cart/:row/:col", function(req, res){
 });
 
 
+/////////////////////////////////////////////////////////////////save changes to cart
+
+app.post("/saved-to-cart", function(req, res){
+	var quantity = req.body.quantity;
+	console.log(req.body);
+	    quantity = quantity.slice(1, quantity.length-2);
+	    quantity = quantity.split(',');
+	// console.log(quantity);
+	var email = req.body.email;
+	var password = req.body.password;
+	var userquery = {email:email, password:password};
+	var cartValue = 0;
+	User.find(userquery,function(err, foundUser){
+		if(err){
+			console.log("ERROR IN SAVE TO CART POST REQ");
+			res.redirect('/');
+		}
+		else
+		{
+			if(foundUser.length == 0){
+				res.redirect("/");
+			}
+			else if(foundUser.length == 1)
+			{
+				cart = foundUser[0].cart;
+				for(var i=0; i<cart.length; i++){
+					cart[i].quantity = Number(quantity[i]);
+					cartValue += cart[i].quantity * Number(cart[i].price.slice(1));
+				}
+				
+				User.updateOne(userquery, {cart:cart, cartValue: cartValue}, function(err, Res){
+					if(err){
+						console.log("ERROR IN CART UPDATION!");
+						res.redirect('/');
+					}
+					else
+					{
+						res.render("home.ejs", {login: true, user: foundUser[0], message:"Changes Saved to cart"});
+					}
+				})
+			}
+			else{
+				console.log("MORE THAN ONE USER!!!");
+				res.redirect('/');
+			}
+		}
+	})
+})
 
 app.get("/images", function(req, res){
 	Category.find({}, function(err, foundCat){

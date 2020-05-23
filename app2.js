@@ -2084,48 +2084,49 @@ for(var i=0;i<40;i++)
 }
 page[2][2]=page1;
 
-var names=["Pigeon Baby Transparent Soap without Case"
-,"Mustela Baby Oil"
-, "Himalaya Gentle Baby Shampoo pack Baby Boys & Baby Girls"
-, "Himalaya Massage Oil"
-, "Himalaya Baby Lotion 400 ml"
-, "Himalaya Khus Khus Baby Powder"
-,"Himalaya baby cream extra soft and gentle"
-, "Johnson's Baby Avacado  Hair Oil"
-, "Johnson's Baby Oil with Vitamin E"
-, "Himalaya GENTLE BABY SOAP VALUE PACK"
-, "Dabur Lal Tail"
-, "Himalaya Baby Massage Oil"
-, "Himalaya Baby Cream"
-, "Mustela Stelatopia Cleansing Cream"
-, "Himalaya Gentle Baby Shampoo Baby Boys & Baby Girls"
-, "Himalaya Gentle Baby Wash"
-, "Johnson's Baby Cream"
-, "Himalaya Baby Massage Oil"
-, "Himalaya Extra Moisturizing baby wash 200 ml"
-, "WOW Skin Science Thai Body Massage Oil for Reviving and Refreshing Body - infused with blend of 6 Oils with Jasmine Absolute, Kaffir Lime & Lemongrass Essential Oils - for All Skin Types - No Parabens, Silicones, Mineral Oil & Color- 200mL"
-, "Mamaearth Moisturizing Baby Bathing Soap Bar pH 5.5 with Goat Milk and Oatmeal, 75g (Pack of 2)"
-, "Mamaearth Gentle Cleansing Shampoo for Babies (400 ml) Baby Boys & Baby Girls"
-, "Johnson's Baby Oil with Vitamin E"
-, "WOW Skin Science Kids 3 in 1 Head to Toe Wash - Sweet Orange - 300 mL"
-, "Mamaearth Onion Hair Fall Shampoo for Hair Growth & Hair Fall Control, with Onion Oil & Plant Keratin Baby Boys & Baby Girls"
-, "Johnson's New Lotion 500ml (Pack of 2)"
-, "The Moms Co. Natural Baby Massage Oil (200 ml)"
-, "Mamaearth Bathing Bar for Babies - Pack of 4"
-, "Himalaya Gentle Baby Soap 6N X 75G"
-, "Pigeon BODY MASSAGE CREAM 110 GMS"
-, "Johnson's Milk+ Rice Lotion 200 ml"
-, "Himalaya Extra Moisturizing Baby Soap 6NX75G"
-, "Johnson's Baby Soap with Baby Lotion & Vitamin E"
-, "Mustela Stelatopia Bath Oil"
-, "Mamaearth Moisturizing Daily Lotion For Babies/Kids"
-, "MeeMee Soft Baby Lotion 500ml"
-, "Mamaearth Deeply Nourishing Body Wash for Babies"
-, "Mamaearth Soothing Massage Oil for Babies"
-, "Mamaearth Deeply Nourishing Natural Baby Wash (100 ml)"
-, "antarafashion Pure Olive Oil 100% Natural and Cold Pressed Hair Oil"];
+var names=["Pampers Pants Diapers Monthly Box Pack New - L"
+, "Pampers Active Baby Diapers Taped Extra Large Size"
+, "Himalaya Total Care - L"
+, "MamyPoko Pants Extra Absorb Diapers - L"
+, "Himalaya Total Care - M"
+, "MamyPoko Pants Extra Absorb Diapers - M"
+, "Pampers Baby-Dry Pants Diaper - XL"
+, "MamyPoko Pants Standard Diapers - S"
+, "Himalaya Total Care Baby Pants - L"
+, "Pampers Baby-Dry Pants Diaper - M"
+, "MamyPoko Pants Standard Diapers - L"
+, "MamyPoko Extra Absorb Pant Diapers - XXL"
+, "MamyPoko Pants Extra Absorb Diapers - XXL"
+, "Pampers Active Baby Taped Diapers - S"
+, "MamyPoko Pants Standard Diapers - M"
+, "Huggies Wonder Pants Diaper - L"
+, "Huggies Wonder Pants Diaper - XS"
+, "Billion Extra Absorb Diaper Pants - M"
+, "Pampers Baby-Dry Pants Diaper - L"
+, "Pampers Premium Care Pants Diapers - L"
+, "Huggies Wonder Pants Diaper - M"
+, "Huggies Wonder Pants Medium Size Diapers Combo Pack Of 2, 54 Counts Per Pack (108 Counts) - M"
+, "Pampers Baby-Dry Pants Diaper - M"
+, "Pampers Premium Care Pants Diapers Monthly Box Pack - XL"
+, "Himalaya Total Care Baby Pants - M"
+, "Pampers Baby-Dry Diapers - L"
+, "MamyPoko Pants Extra Absorb Diapers - L"
+, "Himalaya Total Care - S"
+, "Pampers Pants Diapers Monthly Box Pack New - XL"
+, "Pigeon PANTS DIAPER, EXTRA LARGE (28 PCS) - XL"
+, "Pampers Active Baby Diapers - New Born"
+, "MamyPoko Pants Extra Absorb Diapers - XXXL"
+, "Pampers New Large Size Diapers Pants (44 Count) - L"
+, "FRESHKINS Disposable Tape Diaper - L"
+, "MamyPoko Pants Standard Diapers - XL"
+, "Huggies Wonder Pants - M"
+, "Himalaya Total Care - XL"
+, "Pampers Baby-Dry Pants Diaper - S"
+, "Billion Extra Absorb Diaper Pants - S"
+, "FRESHKINS Disposable Tape Diaper - S"];
 
-var prices=["₹330"
+
+var  prices=["₹330"
 , "₹720"
 , "₹276"
 , "₹247"
@@ -2246,62 +2247,63 @@ var noOfRatings=["(167)"
 for(var i=noOfRatings.length; i<40; i++)
 {noOfRatings[i] = "(105)"};
 
-var images=["https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/v/m/j/baby-dry-sheet-medium-bpsomedpnk-miss-chief-original-imaf8ytxnuydfbqq.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/g/h/f/baby-dry-sheet-large-bpsolrgmrn-miss-chief-original-imaf8ytxwphuu788.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jlzhci80/mat/z/j/y/baby-dry-sheet-medium-bpprntmedlacaz-miss-chief-original-imaf8zxcd7g9zdyg.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/k/f/r/baby-dry-sheet-small-bpsosmlpnk-miss-chief-original-imaf8ytxtsqmt8nw.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/g/h/f/baby-dry-sheet-large-bpsolrgmrn-miss-chief-original-imaf8ytxwphuu788.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/v/m/j/baby-dry-sheet-medium-bpsomedpnk-miss-chief-original-imaf8ytxnuydfbqq.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jkwwgi80/blanket/m/j/u/blanketpolkaorange-blpolorg-miss-chief-original-imaf85znnaavbsxn.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/s/h/6/baby-dry-sheet-large-bpsolrglac-miss-chief-original-imaf8ytxwgyshu4f.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jkwwgi80/blanket/k/s/h/blanketelephantblue-blelpblu-miss-chief-original-imaf85znnajktbnz.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/s/h/6/baby-dry-sheet-large-bpsolrglac-miss-chief-original-imaf8ytxwgyshu4f.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/v/2/p/baby-dry-sheet-large-bpsolrgsblu-miss-chief-original-imaf8ytywrybrfqm.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/r/n/p/baby-dry-sheet-small-bpsosmlpch-miss-chief-original-imaf8ytxwjasdcxf.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/g/x/h/baby-dry-sheet-large-bpsolrgpch-miss-chief-original-imaf8ytxxzuarw27.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/s/h/6/baby-dry-sheet-large-bpsolrglac-miss-chief-original-imaf8ytxwgyshu4f.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jlzhci80/mat/g/z/g/baby-dry-sheet-medium-bpprntmedsolmaz-miss-chief-original-imaf8zxdftunhyyg.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/y/f/a/baby-dry-sheet-small-bpsosmlmrn-miss-chief-original-imaf8yty9y7hrqgz.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jazodjk0/bedding-set/8/w/z/baby-bedding-set-pink-mt-19-single-mt-19-nagar-international-original-imafyff5e4tkvw7t.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jchz3ww0/mosquito-net/c/h/y/baby-bedding-with-mosquitoes-net-bedding01-fashion-huts-original-imaewn9br7qmgjvc.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8g8knk0/mat/8/p/z/medium-extra-absorbent-sheet-mat5-luvlap-original-imafqggzxfqg82ts.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/g/x/h/baby-dry-sheet-large-bpsolrgpch-miss-chief-original-imaf8ytxxzuarw27.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8g8knk0/mat/h/v/h/large-instadry-extra-absorbent-sheet-mat-3-luvlap-original-imafqghythvmzevq.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k12go7k0/blanket/s/y/z/baby-boy-s-and-baby-girl-s-3-in-1-hooded-welcrow-stitched-baby-original-imafknxsutvxhzpr.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8ndrww0/blanket/c/g/9/soft-flannel-baby-blanket-80cm-x-100cm-pink-white-flowers-900123-original-imafqmmt2gd3eszc.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/mat/b/y/d/1029128-spaces-by-welspun-spaces-disney-princess-pink-cotton-original-imaepw5vaywhrdjs.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jlzhci80/mat/n/p/8/baby-dry-sheet-small-bpprntsmllac12-miss-chief-original-imaf8ytytbqc32dw.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jazodjk0/blanket/n/2/q/cartoon-hooded-classic-baby-wrapper-cool4pc-brandonn-original-imaewngzeqv7fxzu.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8ndrww0/blanket/c/3/k/super-ultra-soft-flannel-baby-blanket-110cm-x-130cm-pink-owl-original-imafqmmtkbu2r9tm.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/mat/g/w/b/1029129-spaces-by-welspun-spaces-disney-frozen-sky-blue-cotton-original-imaepw5vhasbh7db.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/mat/v/2/p/baby-dry-sheet-large-bpsolrgsblu-miss-chief-original-imaf8ytywrybrfqm.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k6tniq80/mat/3/z/a/extra-large-baby-playmate-722537406307-a-baby-cherry-original-imafp7dtfba8t6je.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8g8knk0/mat/r/r/f/medium-extra-absorbent-sheet-mat8-luvlap-original-imafqggzyhkr2hfe.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jhavdzk0/mosquito-net/p/s/m/baby-cotton-padded-bed-net-mosquito-net-multicolor-eiou01-original-imaf5bk2gntvfmcg.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jn4x47k0/pillow/g/g/e/new-born-baby-baby-soft-pillow-pink-u-shap-poddar-fashion-square-original-imaf5dudh5mybzy7.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jw84ya80/pillow/g/e/2/new-born-baby-neck-support-pillow-pillow-002-adriel-bringing-joy-original-imafgym4thkn5vxc.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8ot7rk0/blanket/c/t/a/soft-flannel-baby-blanket-80cm-x-100cm-orange-monkey-900125-original-imafqmn8znpk8hha.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8g8knk0/mat/8/p/z/medium-extra-absorbent-sheet-mat5-luvlap-original-imafqggzxfqg82ts.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8ndrww0/blanket/t/h/g/polar-fleece-baby-blanket-70cm-x-100cm-light-sky-blue-dino-original-imafqmhtgx3bz3nn.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jly1wnk0/blanket/g/4/h/baby-wrapper-bwsolsgrn-miss-chief-original-imaf8ytxtqrgdkwh.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/k8g8knk0/mat/r/r/f/medium-extra-absorbent-sheet-mat8-luvlap-original-imafqggzyhkr2hfe.jpeg?q=70"
-, "https://rukminim1.flixcart.com/image/612/612/jw84ya80/pillow/b/b/7/new-born-baby-neck-support-pillow-pillow-001-adriel-bringing-joy-original-imafgymf4yevtkvd.jpeg?q=70"];
+var images=["https://rukminim1.flixcart.com/image/612/612/jhp5si80/diaper/h/h/y/na-l-128-pampers-original-imaf5ngw6hegyxtu.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jf8khow0/diaper/p/g/f/active-baby-xl-56-pampers-original-imaf3rf28zzrhken.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/s/w/9/total-care-l-76-himalaya-original-imafrhpdvkhvgzzr.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jpa2w7k0/diaper/3/x/g/pants-extra-absorb-diaper-l-96-mamypoko-original-imafbjv2u7nzthdp.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jsqe7bk0/diaper/b/r/e/m-total-care-baby-pants-78-himalaya-original-imafe86fhnjajswy.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k5h2jrk0/diaper/c/g/a/pants-extra-absorb-diapers-m-114-mamypoko-original-imafz54jzcsgzxza.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jmkwya80/diaper/x/y/7/pants-diapers-new-xl-56-pampers-original-imaf9gfjbyvknazz.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jkbguq80/diaper/a/t/z/s-pants-standard-46-mamypoko-original-imaf7p8wksuvfjea.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/w/g/y/total-care-baby-pants-l-54-himalaya-original-imafrhpdgy8cpnwn.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jrqo70w0/diaper/g/6/y/baby-dry-pants-diaper-m-54-pampers-original-imafdgpqq5nrec5f.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jkh6m4w0/diaper/w/p/s/l-pants-standard-34-mamypoko-original-imaf7tqanjucz4gk.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k5h2jrk0/diaper/w/e/n/extra-absorb-pant-diapers-xxl-44-mamypoko-original-imafz54jkevppcff.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jmux18w0/diaper/t/h/z/pants-extra-absorb-diaper-xxl-22-mamypoko-original-imaf9z5cfhqhqbah.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/diaper/j/f/u/4902430671484-46-pampers-active-baby-diapers-original-imaenas32pcknstg.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jkbguq80/diaper/e/y/g/m-pants-standard-36-mamypoko-original-imaf7p8w6arfxxec.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k2rwlu80/diaper/v/y/z/wonder-pants-diaper-l-64-huggies-original-imafket4upskabsr.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k2rwlu80/diaper/g/2/c/wonder-pants-diaper-xs-24-huggies-original-imafket4j6bwefnn.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/y/z/f/extra-absorb-diaper-pants-m-74-billion-original-imafrhpdpzgzz53b.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jrqo70w0/diaper/z/p/f/baby-dry-pants-diaper-l-64-pampers-original-imafdgpqerzmxgzz.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jmkwya80/diaper/x/r/u/premium-care-pants-diapers-l-44-pampers-original-imaf9gfjydzhnszc.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k2rwlu80/diaper/z/w/d/wonder-pants-diaper-m-76-huggies-original-imafket4jshjqgej.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k2rwlu80/diaper/y/d/h/wonder-pants-medium-size-diapers-combo-pack-of-2-54-counts-per-original-imafmfh6ypmhey3y.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jmkwya80/diaper/c/f/k/pants-diapers-new-m-76-pampers-original-imaf9gfjwdvghbgg.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k5y7tzk0/diaper/m/b/a/premium-care-pants-diapers-monthly-box-pack-xl-72-pampers-original-imafzgkfw4absfgf.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/p/y/x/total-care-baby-pants-m-54-himalaya-original-imafrhpdwhuphbfx.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/j391ifk0/diaper/w/v/q/l-baby-diapers-60-4902430666848-pampers-original-imaeufgytpzcgftp.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k5h2jrk0/diaper/c/4/n/pants-extra-absorb-diapers-l-44-mamypoko-original-imafz54jqkr88dhs.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/h/y/g/total-care-s-80-himalaya-original-imafrhpdxy6hhbz5.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jrqo70w0/diaper/8/g/k/pants-diapers-monthly-box-pack-new-xl-112-pampers-original-imafdhyrgjsz3zhq.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jph83gw0/diaper/v/d/j/pants-diaper-extra-large-28-pcs-xl-28-pigeon-original-imafbncezybhrkuh.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jf8khow0/diaper/u/5/f/active-baby-diapers-new-born-72-pampers-original-imafyhftchsuugtz.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/j1dvte80/diaper/a/s/f/pants-xxxl-7-8903622032706-mamy-poko-original-imaeszf9cx4cgzzh.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jsc3ssw0/diaper/g/2/s/l-new-large-size-diapers-pants-44-count-44-pampers-original-imafdxn98wm8gtxw.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k1l1ea80/diaper/9/b/g/disposable-tape-diaper-l-36-freshkins-original-imafkfnukujbebha.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jcjejrk0/diaper/x/q/2/pants-standard-diaper-xl-26-mamypoko-original-imaffngy9nj3cxfy.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k2rwlu80/diaper/k/a/z/wonder-pants-m-54-huggies-original-imafmfh6rgbpccdg.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/z/g/s/total-care-xl-74-himalaya-original-imafrhpd533syp2b.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/jmkwya80/diaper/a/s/x/pants-diaper-s-86-pampers-original-imaf95cyzrxpahsu.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k9re3rk0/diaper/4/8/h/extra-absorb-diaper-pants-s-80-billion-original-imafrhpdth8zsnm2.jpeg?q=70"
+, "https://rukminim1.flixcart.com/image/612/612/k1l1ea80/diaper/y/s/h/disposable-tape-diaper-s-48-freshkins-original-imafkfz5a6gjv8rh.jpeg?q=70"];
 var page1=[];
 
 
 for(var i=0;i<40;i++)
 {
-	var item={title:names[i],
-				rating:ratings[i],
-				noOfRating:noOfRatings[i],
-				price:prices[i],
-				image:images[i]
-			}
-	page1.push(item);
+var item={title:names[i],
+rating:ratings[i],
+noOfRating:noOfRatings[i],
+price:prices[i],
+image:images[i]
+}
+page1.push(item);
 
-		
+
 }
 page[2][3]=page1;
+
 
 ////////////////////////////////////////////////////////////////////////////////4th ROW /////////////////////////////////////////////////////////////
 
