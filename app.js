@@ -5,7 +5,7 @@ var app = express();
 var bodyParser = require("body-parser");
 var nodemailer = require('nodemailer');
 var emailid = 'assist.add2kart@gmail.com';
-var emailpass = 'coltismyname';
+var emailpass = 'JUMS2020';
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
